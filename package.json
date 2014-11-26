@@ -1,0 +1,33 @@
+{
+  "name": "temoa",
+  "version": "1.0.0",
+  "description": "The temoa hub",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.8.10"
+  },
+  "devDependencies": {
+    "del": "^0.1.3",
+    "gulp": "^3.8.10",
+    "gulp-autoprefixer": "^2.0.0",
+    "gulp-less": "^1.3.6",
+    "gulp-notify": "^2.0.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^1.0.1",
+    "gulp-util": "^3.0.1",
+    "jsonfile": "^2.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wafto/temoa.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wafto/temoa/issues"
+  },
+  "homepage": "https://github.com/wafto/temoa"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "temoa",
+  "version": "1.0.0",
+  "homepage": "https://github.com/wafto/temoa",
+  "authors": [
+    "Aftab Hussain Miranda <wafto.mx@gmail.com>"
+  ],
+  "description": "The temoa hub",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.3.1",
+    "eonasdan-bootstrap-datetimepicker": "~3.0.0"
+  }
+}
