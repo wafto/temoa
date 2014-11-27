@@ -25,10 +25,12 @@ class CreateUsersTable extends Migration {
 			$table->integer('partner_id')->unsigned()->index()->nullable();
 			$table->integer('admin_id')->unsigned()->index()->nullable();
 			$table->integer('dependency_admin_id')->unsigned()->index()->nullable();
+			$table->integer('civil_servant_id')->unsigned()->index()->nullable();
 			$table->timestamps();
 		    $table->foreign('partner_id')->references('id')->on('partners')->onDelete('cascade');
 		    $table->foreign('dependency_admin_id')->references('id')->on('dependencies_admins')->onDelete('cascade');
 		    $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
+		    $table->foreign('civil_servant_id')->references('id')->on('civil_servants')->onDelete('cascade');
 		});
 	}
 
