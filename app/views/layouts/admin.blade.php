@@ -27,6 +27,7 @@
     <!-- javascripts -->
     {{ HTML::script("/js/jquery.min.js") }}
     {{ HTML::script("/js/bootstrap.min.js") }}
+    {{ HTML::script("/js/moment-with-locales.min.js") }}
     {{ HTML::script("/js/bootstrap-datetimepicker.min.js") }}
     @show
 

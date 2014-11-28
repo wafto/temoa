@@ -56,7 +56,7 @@ gulp.task('bootstrap:dtpicker', function () {
     .pipe(gulp.dest(directory.target.css));
   gulp.src(dp + '/js/bootstrap-datetimepicker.min.js')
     .pipe(gulp.dest(directory.target.js));
-  gulp.src(directory.bower + '/moment/min/moment-with-langs.min.js')
+  gulp.src(directory.bower + '/moment/min/moment-with-locales.min.js')
     .pipe(gulp.dest(directory.target.js));
 });
 
