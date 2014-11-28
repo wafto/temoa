@@ -1,7 +1,8 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
     "hash": "fefec0961b9e2d852e171cc1626ad81d",
     "packages": [
@@ -2470,6 +2471,7 @@
         "artdarek/oauth-4-laravel": 20,
         "fzaninotto/faker": 20
     },
+    "prefer-stable": false,
     "platform": [],
     "platform-dev": []
 }

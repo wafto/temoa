@@ -1,6 +1,6 @@
 ## The Temoa Hub
 
-[![Build Status](https://travis-ci.org/wafto/temoa.svg)](https://travis-ci.org/laravel/framework)
+[![Build Status](https://travis-ci.org/wafto/temoa.svg)](https://travis-ci.org/wafto/temoa)
 
 ### License
 
