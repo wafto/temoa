@@ -1,0 +1,3 @@
+suites:
+  temoa_suite:
+    src_path: app
