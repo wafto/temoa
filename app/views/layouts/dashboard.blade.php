@@ -6,6 +6,10 @@
     body {
       margin-top: 70px;
     }
+    #temoa-logo {
+      height: 45px;
+      margin: -10px 0 0 0;
+    }
   </style>
 @stop
 

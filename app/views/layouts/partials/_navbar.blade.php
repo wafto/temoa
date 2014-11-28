@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="#" class="navbar-brand">wafto.mx</a>
+      <a href="#" class="navbar-brand">{{ HTML::image('img/logo.png', 'temoa', ['id' => 'temoa-logo']) }}</a>
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
@@ -22,7 +22,7 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="#"><span class="glyphicon glyphicon-user"></span> User Profile</a>
+              <a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a>
             </li>
             <li class="divider"></li>
             <li>
