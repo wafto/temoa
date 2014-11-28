@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "homepage": "https://github.com/wafto/temoa",
   "authors": [
-    "Aftab Hussain Miranda <wafto.mx@gmail.com>"
+    "Aftab Hussain Miranda <wafto.mx@gmail.com>",
+    "Eduardo Ortiz Ramirez <edbr.or@gmail.com>"
   ],
   "description": "The temoa hub",
   "license": "MIT",
