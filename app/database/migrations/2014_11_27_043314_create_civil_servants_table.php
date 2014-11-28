@@ -20,7 +20,7 @@ class CreateCivilServantsTable extends Migration {
 			$table->integer('dependency_id')->unsigned()->index();
 			$table->string('area');
 			$table->string('job');
-			$table->timestamp('job_from');
+			$table->dateTime('job_from');
 			$table->text('plan_objectives');
 			$table->timestamps();
 			$table->foreign('dependency_id')->references('id')->on('dependencies')->onDelete('cascade');

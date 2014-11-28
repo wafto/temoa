@@ -23,7 +23,8 @@ class CreateCoursesTable extends Migration {
 			$table->text('description');
 			$table->integer('duration');
 			$table->enum('format', ['presencial', 'línea'])->index();
-			$table->boolean('visible', 1);
+			$table->boolean('visible')->default(1);
+			$table->boolean('cancelled')->default(0);
 			$table->timestamps();
 			$table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 			$table->foreign('partner_id')->references('id')->on('partners')->onDelete('cascade');
