@@ -1,6 +1,6 @@
 <?php namespace Admin;
 
-use Temoa\Dependecy\CreateCommand;
+use Temoa\Dependency\CreateCommand;
 use BaseController, View;
 
 class DependenciesController extends BaseController {
@@ -35,7 +35,7 @@ class DependenciesController extends BaseController {
 	 */
 	public function store()
 	{
-		$this->execute(CreateCommand::class);
+		$dependency = $this->execute(CreateCommand::class);
 	}
 
 	/**

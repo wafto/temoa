@@ -1,6 +1,7 @@
 <?php namespace Temoa\Dependency;
 
 use Laracasts\Commander\CommandHandler;
+use Dependency;
 
 class CreateCommandHandler implements CommandHandler {
 
@@ -12,7 +13,11 @@ class CreateCommandHandler implements CommandHandler {
      */
     public function handle($command)
     {
-        var_dump($command);
+        $dependency = new Dependency();
+        $dependency->name = $command->name;
+        $dependency->responsable = $command->responsable;
+        $dependency->save();
+        return $dependency;
     }
 
 }
