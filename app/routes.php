@@ -11,7 +11,26 @@
 |
 */
 
-Route::get('/', function()
+
+Route::group(['prefix' => 'admin', 'before' => []], function()
 {
-	return View::make('admin.courses.index');
+
+    Route::group(['prefix' => 'usuarios'], function()
+    {
+        Route::resource('servidores-publicos', 'Admin\User\CivilServantsController');
+
+        Route::resource('socios-tecnologicos', 'Admin\User\PartnersController');
+
+        Route::resource('admins-dependencia', 'Admin\User\DependenciesAdminsController');
+
+        Route::resource('admins-temoa', 'Admin\User\AdminsController');
+    });
+
+
+    Route::resource('dependencias', 'Admin\DependenciesController');
+
+    Route::resource('cursos', 'Admin\CoursesController');
+
+    Route::resource('contactos', 'Admin\ContactsController');
+
 });
