@@ -11,6 +11,7 @@
 |
 */
 
+Route::get('/', 'BaseController@ejemplo');
 
 Route::group(['prefix' => 'admin', 'before' => []], function()
 {

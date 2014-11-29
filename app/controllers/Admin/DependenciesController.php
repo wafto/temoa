@@ -1,5 +1,6 @@
 <?php namespace Admin;
 
+use Temoa\Dependecy\CreateCommand;
 use BaseController, View;
 
 class DependenciesController extends BaseController {
@@ -12,7 +13,7 @@ class DependenciesController extends BaseController {
 	 */
 	public function index()
 	{
-		return View::make('admin.courses.index');
+		return View::make('admin.dependencies.index');
 	}
 
 	/**
@@ -23,7 +24,7 @@ class DependenciesController extends BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('admin.dependencies.create');
 	}
 
 	/**
@@ -34,7 +35,7 @@ class DependenciesController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$this->execute(CreateCommand::class);
 	}
 
 	/**
@@ -46,7 +47,7 @@ class DependenciesController extends BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		return View::make('admin.dependencies.show');
 	}
 
 	/**
@@ -58,7 +59,7 @@ class DependenciesController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		return View::make('admin.dependencies.edit');
 	}
 
 	/**

@@ -1,6 +1,7 @@
 <?php
 
 use Laracasts\Commander\CommanderTrait;
+use Temoa\Dependecy\CreateCommand;
 
 class BaseController extends Controller {
 
@@ -19,4 +20,8 @@ class BaseController extends Controller {
 		}
 	}
 
+	public function ejemplo()
+	{
+		$this->execute(CreateCommand::class);
+	}
 }
