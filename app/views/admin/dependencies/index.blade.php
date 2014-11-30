@@ -24,22 +24,22 @@
           </tr>
         </thead>
         <body>
-        @foreach ($dependencies as $item)
+        @foreach ($dependencies->getItems() as $item)
           <tr>
-            <td>{{{ $item->id }}}</td>
-            <td>{{{ $item->name }}}</td>
-            <td>{{{ $item->responsable }}}</td>
-            <td>{{{ $item->created_at }}}</td>
-            <td>{{{ $item->updated_at }}}</td>
+            <td>{{{ $item['id'] }}}</td>
+            <td>{{{ $item['name'] }}}</td>
+            <td>{{{ $item['responsable'] }}}</td>
+            <td>{{{ $item['created_at'] }}}</td>
+            <td>{{{ $item['updated_at'] }}}</td>
             <td>
               <div class="btn-group btn-group-xs pull-right">
-                <a href="{{ action('Admin\DependenciesController@show', $item->id) }}" class="btn btn-default">
+                <a href="{{ action('Admin\DependenciesController@show', $item['id']) }}" class="btn btn-default">
                   <span class="glyphicon glyphicon-eye-open"></span>
                 </a>
-                <a href="{{ action('Admin\DependenciesController@edit', $item->id) }}" class="btn btn-default">
+                <a href="{{ action('Admin\DependenciesController@edit', $item['id']) }}" class="btn btn-default">
                   <span class="glyphicon glyphicon-edit"></span>
                 </a>
-                <a href="{{ action('Admin\DependenciesController@destroy', $item->id) }}" class="btn btn-default">
+                <a href="{{ action('Admin\DependenciesController@destroy', $item['id']) }}" class="btn btn-default">
                   <span class="glyphicon glyphicon-trash"></span>
                 </a>
               </div>
@@ -50,7 +50,7 @@
       </table>
     </div>
     <div class="panel-footer">
-
+      {{ $dependencies->appends(Request::except('page'))->links() }}
     </div>
   </div>
 

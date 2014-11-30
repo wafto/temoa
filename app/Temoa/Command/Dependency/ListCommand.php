@@ -13,14 +13,19 @@ class ListCommand {
     public $direction;
 
     /**
-     * @var string
+     * @var int
      */
     public $page;
 
     /**
-     * @var string
+     * @var int
      */
     public $size;
+
+    /**
+     * @var array
+     */
+    public $search;
 
     /**
      * @param string sort
@@ -28,12 +33,13 @@ class ListCommand {
      * @param string page
      * @param string size
      */
-    public function __construct($sort, $direction, $page, $size)
+    public function __construct($sort, $direction, $page, $size, $search)
     {
         $this->sort = $sort;
         $this->direction = $direction;
         $this->page = $page;
         $this->size = $size;
+        $this->search = $search;
     }
 
 }

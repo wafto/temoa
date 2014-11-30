@@ -9,7 +9,8 @@ class PaginateSortedSanitizer implements CommandBus {
         $this->setupPagination($command)
             ->setupSize($command)
             ->setupDirection($command)
-            ->setupSort($command);
+            ->setupSort($command)
+            ->setupSearch($command);
     }
 
     protected function setupPagination($command)
@@ -23,7 +24,7 @@ class PaginateSortedSanitizer implements CommandBus {
     protected function setupSize($command)
     {
         if (!$command->size || !is_numeric($command->size) || intval($command->size) < 1) {
-            $command->size = 10;
+            $command->size = 5;
         }
         return $this;
     }
@@ -40,6 +41,14 @@ class PaginateSortedSanitizer implements CommandBus {
     {
         if (!$command->sort) {
             $command->sort = 'id';
+        }
+        return $this;
+    }
+
+    protected function setupSearch($command)
+    {
+        if (!is_array($command->search)) {
+            $command->search = [];
         }
         return $this;
     }

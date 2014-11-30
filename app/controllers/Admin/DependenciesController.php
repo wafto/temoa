@@ -16,11 +16,13 @@ class DependenciesController extends BaseController {
 	 */
 	public function index()
 	{
-		$input = Request::only('sort', 'direction', 'page', 'size');
+		$input = Request::only('sort', 'direction', 'page', 'size', 'search');
 
-		$dependencies = $this->execute(ListCommand::class, $input, [
+		$data = $this->execute(ListCommand::class, $input, [
 			PaginateSortedSanitizer::class
 		]);
+
+		$dependencies = getPaginator($data);
 
 		return View::make('admin.dependencies.index', compact('dependencies'));
 	}
