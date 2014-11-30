@@ -8,7 +8,7 @@
           <div class="col-xs-12">
             <div class="form-group">
               {{ Form::label('name', 'Nombre de la dependencia') }}
-              {{ Form::text('name', $model, ['class' => 'form-control']) }}
+              {{ Form::text('name', $model ? $model->name : '', ['class' => 'form-control']) }}
               {{ $errors->first('name', '<div class="text-danger">:message</div>') }}
             </div>
           </div>
@@ -17,7 +17,7 @@
           <div class="col-xs-12">
             <div class="form-group">
               {{ Form::label('responsable', 'Persona responsable') }}
-              {{ Form::text('responsable', $model, ['class' => 'form-control']) }}
+              {{ Form::text('responsable', $model ? $model->responsable : '', ['class' => 'form-control']) }}
               {{ $errors->first('responsable', '<div class="text-danger">:message</div>') }}
             </div>
           </div>

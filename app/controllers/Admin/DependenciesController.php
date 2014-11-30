@@ -1,7 +1,10 @@
 <?php namespace Admin;
 
-use Temoa\Command\Dependency\CreateCommand;
 use Temoa\Command\Dependency\ListCommand;
+use Temoa\Command\Dependency\CreateCommand;
+use Temoa\Command\Dependency\ReadCommand;
+use Temoa\Command\Dependency\UpdateCommand;
+
 use Temoa\Command\PaginateSortedSanitizer;
 use BaseController, View, Flash, Redirect;
 use Request;
@@ -46,9 +49,11 @@ class DependenciesController extends BaseController {
 	 */
 	public function store()
 	{
+		$input = Request::only('name', 'responsable');
+
 		$dependency = $this->execute(CreateCommand::class);
 
-		Flash::success(sprintf('La dependencia %s fue creada con éxito!', $dependency->name));
+		Flash::success(sprintf('La dependencia %s fue creada con éxito!', $dependency->name), $input);
 
 		return Redirect::action('Admin\DependenciesController@index');
 	}
@@ -62,7 +67,9 @@ class DependenciesController extends BaseController {
 	 */
 	public function show($id)
 	{
-		return View::make('admin.dependencies.show');
+		$dependency = $this->execute(ReadCommand::class, compact('id'));
+
+		return View::make('admin.dependencies.show', compact('dependency'));
 	}
 
 	/**
@@ -74,7 +81,9 @@ class DependenciesController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		return View::make('admin.dependencies.edit');
+		$dependency = $this->execute(ReadCommand::class, compact('id'));
+
+		return View::make('admin.dependencies.edit', compact('dependency'));
 	}
 
 	/**
@@ -86,7 +95,13 @@ class DependenciesController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = array_merge(compact('id'), Request::only('name', 'responsable'));
+
+		$dependency = $this->execute(UpdateCommand::class, $input);
+
+		Flash::success(sprintf('La dependencia %s fue editada con éxito!', $dependency->name), $input);
+
+		return Redirect::action('Admin\DependenciesController@index');
 	}
 
 	/**

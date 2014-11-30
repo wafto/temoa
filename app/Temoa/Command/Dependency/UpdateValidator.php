@@ -2,14 +2,15 @@
 
 use Laracasts\Validation\FormValidator;
 
-class CreateValidator extends FormValidator {
+class UpdateValidator extends FormValidator {
 
     /**
-     * Validation rules for dependency creation
+     * Validation rules for dependency edition
      *
      * @var array
      */
     protected $rules = [
+        'id' => 'required|integer',
         'name' => 'required',
         'responsable' => 'required',
     ];

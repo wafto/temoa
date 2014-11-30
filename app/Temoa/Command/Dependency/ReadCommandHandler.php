@@ -3,7 +3,7 @@
 use Laracasts\Commander\CommandHandler;
 use Dependency;
 
-class CreateCommandHandler implements CommandHandler {
+class ReadCommandHandler implements CommandHandler {
 
     public function __construct(Dependency $model)
     {
@@ -14,14 +14,11 @@ class CreateCommandHandler implements CommandHandler {
      * Handle the command.
      *
      * @param object $command
-     * @return Dependency
+     * @return void
      */
     public function handle($command)
     {
-        $this->model->name = $command->name;
-        $this->model->responsable = $command->responsable;
-        $this->model->save();
-        return $this->model;
+        return $this->model->findOrFail($command->id);
     }
 
 }
