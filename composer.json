@@ -30,7 +30,10 @@
 		],
 		"psr-4": {
 			"Temoa\\": "app/Temoa"
-		}
+		},
+		"files": [
+			"app/functions.php"
+		]
 	},
 	"scripts": {
 		"post-install-cmd": [

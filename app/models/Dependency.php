@@ -1,6 +1,11 @@
 <?php
 
+use Temoa\Utility\PaginateTrait;
+use Temoa\Utility\SortedByTrait;
+
 class Dependency extends Eloquent {
+
+    use PaginateTrait, SortedByTrait;
 
     /**
      * The database table used by the model.

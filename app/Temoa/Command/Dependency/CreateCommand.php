@@ -1,4 +1,4 @@
-<?php namespace Temoa\Dependency;
+<?php namespace Temoa\Command\Dependency;
 
 class CreateCommand {
 
