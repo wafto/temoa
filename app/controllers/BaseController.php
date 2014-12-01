@@ -1,6 +1,7 @@
 <?php
 
 use Laracasts\Commander\CommanderTrait;
+use Paginator;
 
 class BaseController extends Controller {
 
@@ -17,5 +18,16 @@ class BaseController extends Controller {
 		{
 			$this->layout = View::make($this->layout);
 		}
+	}
+
+	protected function getPaginator($command)
+	{
+		$items = [];
+
+	    foreach ($command->items as $item) {
+	        $items[] = $item;
+	    }
+
+	    return Paginator::make($items, $command->total, $command->size);
 	}
 }

@@ -2,7 +2,7 @@
 
 use Laracasts\Commander\CommandBus;
 
-class PaginateSortedSanitizer implements CommandBus {
+class ListingSanitizer implements CommandBus {
 
     public function execute($command)
     {

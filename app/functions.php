@@ -20,14 +20,3 @@ function sortBy($action, $column, $body)
 
     return link_to_action($action, $body, $params);
 }
-
-function getPaginator($command)
-{
-    $items = [];
-
-    foreach ($command->items as $item) {
-        $items[] = $item;
-    }
-
-    return Paginator::make($items, $command->total, $command->size);
-}

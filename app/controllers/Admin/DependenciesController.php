@@ -5,9 +5,8 @@ use Temoa\Command\Dependency\CreateCommand;
 use Temoa\Command\Dependency\ReadCommand;
 use Temoa\Command\Dependency\UpdateCommand;
 
-use Temoa\Command\PaginateSortedSanitizer;
-use BaseController, View, Flash, Redirect;
-use Request;
+use Temoa\Command\ListingSanitizer;
+use BaseController, View, Flash, Redirect, Request;
 
 class DependenciesController extends BaseController {
 
@@ -22,10 +21,10 @@ class DependenciesController extends BaseController {
 		$input = Request::only('sort', 'direction', 'page', 'size', 'search');
 
 		$data = $this->execute(ListCommand::class, $input, [
-			PaginateSortedSanitizer::class
+			ListingSanitizer::class
 		]);
 
-		$dependencies = getPaginator($data);
+		$dependencies = $this->getPaginator($data);
 
 		return View::make('admin.dependencies.index', compact('dependencies'));
 	}
@@ -51,9 +50,9 @@ class DependenciesController extends BaseController {
 	{
 		$input = Request::only('name', 'responsable');
 
-		$dependency = $this->execute(CreateCommand::class);
+		$dependency = $this->execute(CreateCommand::class, $input);
 
-		Flash::success(sprintf('La dependencia %s fue creada con éxito!', $dependency->name), $input);
+		Flash::success(sprintf('La dependencia %s fue creada con éxito!', $dependency->name));
 
 		return Redirect::action('Admin\DependenciesController@index');
 	}
