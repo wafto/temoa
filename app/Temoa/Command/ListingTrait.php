@@ -64,4 +64,15 @@ trait ListingTrait {
         $this->result['size'] = $size;
         return $this;
     }
+
+    /**
+     * Handle the command.
+     *
+     * @param object $command
+     * @return object
+     */
+    public function handle($command)
+    {
+        return $this->fetch($command);
+    }
 }

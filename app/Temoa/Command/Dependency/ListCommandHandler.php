@@ -12,16 +12,4 @@ class ListCommandHandler implements CommandHandler {
     {
         $this->model = $model;
     }
-
-    /**
-     * Handle the command.
-     *
-     * @param object $command
-     * @return object
-     */
-    public function handle($command)
-    {
-        return $this->fetch($command);
-    }
-
 }

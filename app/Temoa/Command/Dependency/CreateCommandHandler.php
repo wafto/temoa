@@ -5,6 +5,8 @@ use Dependency;
 
 class CreateCommandHandler implements CommandHandler {
 
+    protected $model;
+
     public function __construct(Dependency $model)
     {
         $this->model = $model;
