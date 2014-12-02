@@ -39,7 +39,7 @@
                 <a href="{{ action('Admin\DependenciesController@edit', $item->id) }}" class="btn btn-default">
                   <span class="glyphicon glyphicon-edit"></span>
                 </a>
-                <a href="{{ action('Admin\DependenciesController@destroy', $item->id) }}" class="btn btn-default">
+                <a href="{{ action('Admin\DependenciesController@delete', $item->id) }}" class="btn btn-default">
                   <span class="glyphicon glyphicon-trash"></span>
                 </a>
               </div>

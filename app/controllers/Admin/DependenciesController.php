@@ -4,6 +4,7 @@ use Temoa\Command\Dependency\ListCommand;
 use Temoa\Command\Dependency\CreateCommand;
 use Temoa\Command\Dependency\ReadCommand;
 use Temoa\Command\Dependency\UpdateCommand;
+use Temoa\Command\Dependency\DestroyCommand;
 
 use Temoa\Command\ListingSanitizer;
 use BaseController, View, Flash, Redirect, Request;
@@ -98,9 +99,23 @@ class DependenciesController extends BaseController {
 
 		$dependency = $this->execute(UpdateCommand::class, $input);
 
-		Flash::success(sprintf('La dependencia %s fue editada con éxito!', $dependency->name), $input);
+		Flash::success(sprintf('La dependencia %s fue editada con éxito!', $dependency->name));
 
 		return Redirect::action('Admin\DependenciesController@index');
+	}
+
+	/**
+	 * Show the confirmation form for removing a resource
+	 * GET /admin/dependencies/{id}/delete
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function delete($id)
+	{
+		$dependency = $this->execute(ReadCommand::class, compact('id'));
+
+		return View::make('admin.dependencies.delete', compact('dependency'));
 	}
 
 	/**
@@ -112,7 +127,18 @@ class DependenciesController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$success = $this->execute(DestroyCommand::class, compact('id'));
+
+		if ($success)
+		{
+			Flash::success('La dependencia fue eliminada con éxito!');
+		}
+		else
+		{
+			Flash::error('No fue posible eliminar la dependencia');
+		}
+
+		return Redirect::action('Admin\DependenciesController@index');
 	}
 
 }
