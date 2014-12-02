@@ -8,6 +8,17 @@ trait ListingTrait {
 
     private $result = [];
 
+    /**
+     * Handle the command.
+     *
+     * @param object $command
+     * @return object
+     */
+    public function handle($command)
+    {
+        return $this->fetch($command);
+    }
+
     protected function fetch($command)
     {
         $this->builder = $this->model->select();
@@ -31,8 +42,46 @@ trait ListingTrait {
 
     protected function search(array $search)
     {
-        /* To do */
+        $search = $command->search;
+
+        foreach ($search as $column => $data)
+        {
+            if (is_array($data))
+            {
+                $this->searchFilter($data);
+            }
+            else
+            {
+                // do something with bad input search
+            }
+        }
         return $this;
+    }
+
+    protected function prepareFilterName($name)
+    {
+        return sprintf('filter%s', ucfirst(strtolower($name)));
+    }
+
+    protected function callFilter($operator, $column, $value)
+    {
+        $method = $this->prepareFilterName($operator);
+        if (is_callable([$this, $method]))
+        {
+            $this->$method($column, $data);
+        }
+        else
+        {
+            // Do somethign with not found filters
+        }
+    }
+
+    protected function searchFilter(array $data)
+    {
+        foreach ($data as $operator => $value)
+        {
+            $this->callFilter($operator, $value);
+        }
     }
 
     protected function setTotal()
@@ -65,14 +114,8 @@ trait ListingTrait {
         return $this;
     }
 
-    /**
-     * Handle the command.
-     *
-     * @param object $command
-     * @return object
-     */
-    public function handle($command)
+    protected function filterGt($column, $value)
     {
-        return $this->fetch($command);
+
     }
 }
