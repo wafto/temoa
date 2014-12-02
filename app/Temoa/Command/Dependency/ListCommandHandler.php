@@ -1,12 +1,12 @@
 <?php namespace Temoa\Command\Dependency;
 
 use Laracasts\Commander\CommandHandler;
-use Temoa\Command\ListingTrait;
+use Temoa\Command\ListTrait;
 use Dependency;
 
 class ListCommandHandler implements CommandHandler {
 
-    use ListingTrait;
+    use ListTrait;
 
     public function __construct(Dependency $model)
     {

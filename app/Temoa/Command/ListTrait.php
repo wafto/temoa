@@ -1,6 +1,6 @@
 <?php namespace Temoa\Command;
 
-trait ListingTrait {
+trait ListTrait {
 
     protected $model;
 
@@ -42,13 +42,11 @@ trait ListingTrait {
 
     protected function search(array $search)
     {
-        $search = $command->search;
-
         foreach ($search as $column => $data)
         {
             if (is_array($data))
             {
-                $this->searchFilter($data);
+                $this->searchFilter($column, $data);
             }
             else
             {
@@ -68,19 +66,19 @@ trait ListingTrait {
         $method = $this->prepareFilterName($operator);
         if (is_callable([$this, $method]))
         {
-            $this->$method($column, $data);
+            $this->$method($column, $value);
         }
         else
         {
-            // Do somethign with not found filters
+            // do something with not found filters
         }
     }
 
-    protected function searchFilter(array $data)
+    protected function searchFilter($column, array $data)
     {
         foreach ($data as $operator => $value)
         {
-            $this->callFilter($operator, $value);
+            $this->callFilter($operator, $column, $value);
         }
     }
 
@@ -116,6 +114,64 @@ trait ListingTrait {
 
     protected function filterGt($column, $value)
     {
+        $this->builder->where($column, '>', $value);
+        return $this;
+    }
 
+    protected function filterGte($column, $value)
+    {
+        $this->builder->where($column, '>=', $value);
+        return $this;
+    }
+
+    protected function filterLt($column, $value)
+    {
+        $this->builder->where($column, '<', $value);
+        return $this;
+    }
+
+    protected function filterLte($column, $value)
+    {
+        $this->builder->where($column, '<=', $value);
+        return $this;
+    }
+
+    protected function filterNe($column, $value)
+    {
+        $this->builder->where($column, '!=', $value);
+        return $this;
+    }
+
+    protected function filterEq($column, $value)
+    {
+        $this->builder->where($column, '=', $value);
+        return $this;
+    }
+
+    protected function filterLk($column, $value)
+    {
+        $this->builder->where($column, 'like', '%'.$value.'%');
+        return $this;
+    }
+
+    protected function filterIn($column, $value)
+    {
+        $values = explode(',', $value);
+        $this->builder->whereIn($column, $values);
+        return $this;
+    }
+
+    protected function filterNin($column, $value)
+    {
+        $values = explode(',', $value);
+        $this->builder->whereNotIn($column, $values);
+        return $this;
+    }
+
+    protected function filterBtw($column, $value)
+    {
+        $values = explode(',', $value);
+        $this->builder->whereBetween($column, $values);
+        return $this;
     }
 }
