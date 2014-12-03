@@ -21,9 +21,9 @@ class Category extends Eloquent {
         return $this->hasMany('Course');
     }
 
-    public function interests()
+    public function civilServants()
     {
-        return $this->hasMany('Interest');
+        return $this->belongsToMany('CivilServant', 'interests', 'category_id', 'civil_servant_id');
     }
 
 }
