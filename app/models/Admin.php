@@ -16,4 +16,9 @@ class Admin extends Eloquent {
      */
     protected $hidden = [];
 
+    public function user()
+    {
+        return $this->hasOne('User');
+    }
+
 }

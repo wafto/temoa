@@ -46,4 +46,9 @@ class CivilServant extends Eloquent {
         return $this->hasMany('TakenCourse');
     }
 
+    public function user()
+    {
+        return $this->hasOne('User');
+    }
+
 }

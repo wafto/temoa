@@ -24,7 +24,7 @@ class ListingSanitizer implements CommandBus {
     protected function setupSize($command)
     {
         if (!$command->size || !is_numeric($command->size) || intval($command->size) < 1) {
-            $command->size = 5;
+            $command->size = 24;
         }
         return $this;
     }

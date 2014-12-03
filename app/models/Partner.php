@@ -21,4 +21,9 @@ class Partner extends Eloquent {
         return $this->hasMany('Course');
     }
 
+    public function user()
+    {
+        return $this->hasOne('User');
+    }
+
 }

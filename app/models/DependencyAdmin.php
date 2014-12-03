@@ -21,4 +21,9 @@ class DependencyAdmin extends Eloquent {
         return $this->belongsTo('Dependency', 'dependency_id', 'id');
     }
 
+    public function user()
+    {
+        return $this->hasOne('User');
+    }
+
 }

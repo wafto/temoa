@@ -32,22 +32,22 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function partner()
     {
-        return $this->hasOne('Partner', 'partner_id', 'id');
+        return $this->belongsTo('Partner', 'partner_id', 'id');
     }
 
     public function admin()
     {
-        return $this->hasOne('Admin', 'admin_id', 'id');
+        return $this->belongsTo('Admin', 'admin_id', 'id');
     }
 
     public function dependencyAdmin()
     {
-        return $this->hasOne('DependencyAdmin', 'dependency_admin_id', 'id');
+        return $this->belongsTo('DependencyAdmin', 'dependency_admin_id', 'id');
     }
 
     public function civilServant()
     {
-        return $this->hasOne('CivilServant', 'civil_servant_id', 'id');
+        return $this->belongsTo('CivilServant', 'civil_servant_id', 'id');
     }
 
     public function interests()
