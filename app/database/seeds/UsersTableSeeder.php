@@ -43,6 +43,17 @@ class UsersTableSeeder extends Seeder {
             $instance->user()->save($factoryUser());
         };
 
+        $rfcMaker = function() use ($faker) {
+            $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.
+                       'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.
+                       'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.
+                       'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $first = substr(str_shuffle($letters), 0, 4);
+            $last = substr(str_shuffle($letters), 0, 2);
+            $date = $faker->dateTimeBetween('-60 years', '-18 years');
+            return sprintf('%s%s%s%s', $first, $date->format('ymd'), $last, $faker->randomDigitNotNull);
+        };
+
         $dependencies = Dependency::lists('id');
 
         foreach (range(1, 600) as $index)
@@ -56,7 +67,7 @@ class UsersTableSeeder extends Seeder {
             $factory('Partner', [
                 'business_name' => $faker->company,
                 'responsable' => $faker->name,
-                'rfc' => $faker->regexify('^[A-Za-z]{4}\-\d{6}(?:\-[A-Za-z\d]{3})?$'),
+                'rfc' => $rfcMaker(),
                 'specialty_area' => $faker->word,
             ]);
 
