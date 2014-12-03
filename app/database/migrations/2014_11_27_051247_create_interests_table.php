@@ -15,10 +15,10 @@ class CreateInterestsTable extends Migration {
 		Schema::create('interests', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('user_id')->unsigned()->index();
+			$table->integer('civil_servant_id')->unsigned()->index();
 			$table->integer('category_id')->unsigned()->index();
 			$table->timestamps();
-			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+			$table->foreign('civil_servant_id')->references('id')->on('civil_servants')->onDelete('cascade');
 			$table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 		});
 	}

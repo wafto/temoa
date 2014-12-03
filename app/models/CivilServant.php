@@ -16,6 +16,11 @@ class CivilServant extends Eloquent {
      */
     protected $hidden = [];
 
+    public function interests()
+    {
+        return $this->hasMany('Interest');
+    }
+
     public function academicTrainings()
     {
         return $this->hasMany('AcademicTraining');

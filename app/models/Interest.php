@@ -23,7 +23,7 @@ class Interest extends Eloquent {
 
     public function user()
     {
-        return $this->belongsTo('User', 'user_id', 'id');
+        return $this->belongsTo('CivilServant', 'civil_servant_id', 'id');
     }
 
 }
