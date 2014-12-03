@@ -1,6 +1,10 @@
 <?php namespace Admin;
 
-use BaseController, View;
+use Temoa\Command\Contact\ListCommand;
+use Temoa\Command\Contact\ReadCommand;
+
+use Temoa\Command\ListingSanitizer;
+use BaseController, View, Flash, Redirect, Request;
 
 class ContactsController extends BaseController {
 
@@ -12,29 +16,15 @@ class ContactsController extends BaseController {
 	 */
 	public function index()
 	{
-		//
-	}
+		$input = Request::only('sort', 'direction', 'page', 'size', 'search');
 
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /admin/contacts/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
+		$data = $this->execute(ListCommand::class, $input, [
+			ListingSanitizer::class
+		]);
 
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /admin/contacts
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
+		$contacts = $this->getPaginator($data);
+
+		return View::make('admin.contacts.index', compact('contacts'));
 	}
 
 	/**
@@ -46,43 +36,8 @@ class ContactsController extends BaseController {
 	 */
 	public function show($id)
 	{
-		//
-	}
+		$contact = $this->execute(ReadCommand::class, compact('id'));
 
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /admin/contacts/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
+		return View::make('admin.contacts.show', compact('contact'));
 	}
-
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /admin/contacts/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /admin/contacts/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
 }
