@@ -28,7 +28,7 @@ class CivilServant extends Eloquent {
 
     public function careerPaths()
     {
-        return $this->hasMany('CarrerPath');
+        return $this->hasMany('CareerPath');
     }
 
     public function dependency()

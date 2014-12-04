@@ -56,7 +56,7 @@ class UsersTableSeeder extends Seeder {
 
         $dependencies = Dependency::lists('id');
 
-        foreach (range(1, 600) as $index)
+        foreach (range(1, 400) as $index)
         {
             $factory('Admin', []);
 
