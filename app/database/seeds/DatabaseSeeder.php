@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder {
 		$this->call('CareerPathsTableSeeder');
 		$this->call('AcademicTrainingsTableSeeder');
 		$this->call('CoursesTableSeeder');
+		$this->call('TakenCoursesTableSeeder');
+		$this->call('RecommendedCoursesTableSeeder');
+		$this->call('DesiredCoursesTableSeeder');
 
 		DB::statement('SET FOREIGN_KEY_CHECKS = 1');
 	}
