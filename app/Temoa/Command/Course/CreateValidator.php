@@ -10,7 +10,13 @@ class CreateValidator extends FormValidator {
      * @var array
      */
     protected $rules = [
-        'internal_number' => 'required|',
+        'internal_number' => 'required|min:6|alpha_num',
+        'external_number' => 'required|min:6|alpha_num',
+        'name' => 'required|min:6',
+        'category' => 'required|exists:categories,name',
+        'partner_id' => 'required|exists:partners,id',
+        'duration' => 'required|numeric',
+        'format' => 'required|in:presencial,línea',
     ];
 
 }

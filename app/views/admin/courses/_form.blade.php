@@ -35,15 +35,15 @@
         <div class="row">
           <div class="col-xs-6">
             <div class="form-group">
-              {{ Form::label('category_id', 'Categoría') }}
-              {{ Form::select('category_id', forDropdown(Category::all(), 'name'), $model ? $model->category_id : '', ['class' => 'form-control']) }}
-              {{ $errors->first('category_id', '<div class="text-danger">:message</div>') }}
+              {{ Form::label('category', 'Categoría') }}
+              {{ Form::select('category', forDropdown(Category::all(), 'name', 'name'), $model ? $model->category : '', ['class' => 'form-control']) }}
+              {{ $errors->first('category', '<div class="text-danger">:message</div>') }}
             </div>
           </div>
           <div class="col-xs-6">
             <div class="form-group">
               {{ Form::label('partner_id', 'Socio Tecnológico') }}
-              {{ Form::select('partner_id', forDropdown(Partner::all(), 'business_name'), $model ? $model->partner_id : '', ['class' => 'form-control']) }}
+              {{ Form::select('partner_id', forDropdown(Partner::all(), 'id', 'business_name'), $model ? $model->partner_id : '', ['class' => 'form-control']) }}
               {{ $errors->first('partner_id', '<div class="text-danger">:message</div>') }}
             </div>
           </div>
@@ -80,7 +80,7 @@
           <div class="col-xs-12">
             <div class="checkbox">
               <label>
-                {{ Form::checkbox('visible', $model ? $model->visible : true, true) }} Visible
+                {{ Form::checkbox('visible', true, $model ? $model->visible : true) }} Visible
               </label>
             </div>
           </div>
@@ -90,7 +90,7 @@
           <div class="col-xs-12">
             <div class="checkbox">
               <label>
-                {{ Form::checkbox('cancelled', $model ? $model->cancelled : false, false) }} Cancelado
+                {{ Form::checkbox('cancelled', true, $model ? $model->cancelled : false) }} Cancelado
               </label>
             </div>
           </div>

@@ -1,6 +1,7 @@
 <?php namespace Admin;
 
 use Temoa\Command\Course\ListCommand;
+use Temoa\Command\Course\CreateCommand;
 
 use Temoa\Command\ListingSanitizer;
 use BaseController, View, Flash, Redirect, Request;
@@ -45,7 +46,13 @@ class CoursesController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Request::only('internal_number', 'external_number', 'name', 'category', 'partner_id', 'description', 'duration', 'format', 'visible', 'cancelled');
+
+		$course = $this->execute(CreateCommand::class, $input);
+
+		Flash::success(sprintf('El curso %s fue creada con éxito!', $course->name));
+
+		return Redirect::action('Admin\CoursesController@index');
 	}
 
 	/**

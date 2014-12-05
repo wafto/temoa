@@ -21,12 +21,12 @@ function sortBy($action, $column, $body)
     return link_to_action($action, $body, $params);
 }
 
-function forDropdown($collection, $column)
+function forDropdown($collection, $key, $column)
 {
     $result = [];
     foreach ($collection as $model)
     {
-        $result[$model->id] = $model->$column;
+        $result[$model->$key] = $model->$column;
     }
     return $result;
 }
