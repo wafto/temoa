@@ -19,12 +19,13 @@ trait ListTrait {
         return $this->fetch($command);
     }
 
-    protected function fetch($command)
+    protected function fetch($command, array $extras = [])
     {
         $this->builder = $this->model->select();
 
         $this->sort($command->sort, $command->direction)
             ->search($command->search)
+            ->with($extras)
             ->setTotal()
             ->paginate($command->page, $command->size)
             ->setItems()
@@ -32,6 +33,12 @@ trait ListTrait {
             ->setSize($command->size);
 
         return (object) $this->result;
+    }
+
+    protected function with(array $extras)
+    {
+        $this->builder->with($extras);
+        return $this;
     }
 
     protected function sort($sort, $direction)

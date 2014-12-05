@@ -25,5 +25,4 @@ class Category extends Eloquent {
     {
         return $this->belongsToMany('CivilServant', 'interests', 'category_id', 'civil_servant_id');
     }
-
 }

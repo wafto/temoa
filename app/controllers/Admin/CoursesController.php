@@ -1,6 +1,9 @@
 <?php namespace Admin;
 
-use BaseController, View;
+use Temoa\Command\Course\ListCommand;
+
+use Temoa\Command\ListingSanitizer;
+use BaseController, View, Flash, Redirect, Request;
 
 class CoursesController extends BaseController {
 
@@ -12,7 +15,15 @@ class CoursesController extends BaseController {
 	 */
 	public function index()
 	{
-		//
+		$input = Request::only('sort', 'direction', 'page', 'size', 'search');
+
+		$data = $this->execute(ListCommand::class, $input, [
+			ListingSanitizer::class
+		]);
+
+		$courses = $this->getPaginator($data);
+
+		return View::make('admin.courses.index', compact('courses'));
 	}
 
 	/**
@@ -23,7 +34,7 @@ class CoursesController extends BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('admin.courses.create');
 	}
 
 	/**

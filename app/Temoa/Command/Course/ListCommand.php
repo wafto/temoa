@@ -1,4 +1,4 @@
-<?php namespace Temoa\Command\Dependency;
+<?php namespace Temoa\Command\Course;
 
 use Temoa\Command\ListCommandTrait;
 

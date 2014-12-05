@@ -20,3 +20,13 @@ function sortBy($action, $column, $body)
 
     return link_to_action($action, $body, $params);
 }
+
+function forDropdown($collection, $column)
+{
+    $result = [];
+    foreach ($collection as $model)
+    {
+        $result[$model->id] = $model->$column;
+    }
+    return $result;
+}
