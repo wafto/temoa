@@ -2,6 +2,7 @@
 
 use Temoa\Command\Course\ListCommand;
 use Temoa\Command\Course\CreateCommand;
+use Temoa\Command\Course\ReadCommand;
 
 use Temoa\Command\ListingSanitizer;
 use BaseController, View, Flash, Redirect, Request;
@@ -64,7 +65,9 @@ class CoursesController extends BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$course = $this->execute(ReadCommand::class, compact('id'));
+
+		return View::make('admin.courses.show', compact('course'));
 	}
 
 	/**

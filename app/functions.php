@@ -30,3 +30,8 @@ function forDropdown($collection, $key, $column)
     }
     return $result;
 }
+
+function boolIcon($value)
+{
+    return $value ? 'glyphicon-ok' : 'glyphicon-remove';
+}
