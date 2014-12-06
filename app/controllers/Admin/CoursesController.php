@@ -3,6 +3,8 @@
 use Temoa\Command\Course\ListCommand;
 use Temoa\Command\Course\CreateCommand;
 use Temoa\Command\Course\ReadCommand;
+use Temoa\Command\Course\UpdateCommand;
+use Temoa\Command\Course\DestroyCommand;
 
 use Temoa\Command\ListingSanitizer;
 use BaseController, View, Flash, Redirect, Request;
@@ -79,7 +81,9 @@ class CoursesController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$course = $this->execute(ReadCommand::class, compact('id'));
+
+		return View::make('admin.courses.edit', compact('course'));
 	}
 
 	/**
@@ -91,7 +95,27 @@ class CoursesController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = array_merge(compact('id'), Request::only('internal_number', 'external_number', 'name', 'category', 'partner_id', 'description', 'duration', 'format', 'visible', 'cancelled'));
+
+		$course = $this->execute(UpdateCommand::class, $input);
+
+		Flash::success(sprintf('El curso %s fue editada con éxito!', $course->name));
+
+		return Redirect::action('Admin\CoursesController@index');
+	}
+
+	/**
+	 * Show the confirmation form for removing a resource
+	 * GET /admin/courses/{id}/delete
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function delete($id)
+	{
+		$course = $this->execute(ReadCommand::class, compact('id'));
+
+		return View::make('admin.courses.delete', compact('course'));
 	}
 
 	/**
@@ -103,7 +127,18 @@ class CoursesController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$success = $this->execute(DestroyCommand::class, compact('id'));
+
+		if ($success)
+		{
+			Flash::success('El curso fue eliminada con éxito!');
+		}
+		else
+		{
+			Flash::error('No fue posible eliminar el curso');
+		}
+
+		return Redirect::action('Admin\CoursesController@index');
 	}
 
 }

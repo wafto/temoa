@@ -138,7 +138,7 @@ class DependenciesController extends BaseController {
 			Flash::error('No fue posible eliminar la dependencia');
 		}
 
-		return Redirect::action('Admin\DependenciesController@index');
+		return Redirect::action('Admin\CoursesController@index');
 	}
 
 }
