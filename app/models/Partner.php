@@ -1,6 +1,11 @@
 <?php
 
-class Partner extends Eloquent {
+use Temoa\Transformer\TransformerInterface;
+use Temoa\Transformer\PartnerTransformerTrait;
+
+class Partner extends Eloquent implements TransformerInterface {
+
+    use PartnerTransformerTrait;
 
     /**
      * The database table used by the model.

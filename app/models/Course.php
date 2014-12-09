@@ -1,6 +1,11 @@
 <?php
 
-class Course extends Eloquent {
+use Temoa\Transformer\TransformerInterface;
+use Temoa\Transformer\CourseTransformerTrait;
+
+class Course extends Eloquent implements TransformerInterface {
+
+    use CourseTransformerTrait;
 
     /**
      * The database table used by the model.

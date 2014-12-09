@@ -31,3 +31,10 @@ Route::group(['prefix' => 'admin', 'before' => ['auth.admin', 'csrf.forms']], fu
     Route::resource('contactos', 'Admin\ContactsController');
 
 });
+
+Route::group(['prefix' => 'api/v1'], function()
+{
+
+    Route::resource('cursos', 'Api\V1\CoursesController', ['only' => ['index', 'show', 'create', 'store', 'destroy']]);
+
+});
