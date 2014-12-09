@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration {
 			$table->integer('admin_id')->unsigned()->index()->nullable();
 			$table->integer('dependency_admin_id')->unsigned()->index()->nullable();
 			$table->integer('civil_servant_id')->unsigned()->index()->nullable();
+			$table->string('remember_token')->nullable();
 			$table->timestamps();
 		    $table->foreign('partner_id')->references('id')->on('partners')->onDelete('cascade');
 		    $table->foreign('dependency_admin_id')->references('id')->on('dependencies_admins')->onDelete('cascade');

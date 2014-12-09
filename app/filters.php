@@ -33,9 +33,9 @@ App::after(function($request, $response)
 |
 */
 
-Route::filter('auth', function()
+Route::filter('auth.admin', function()
 {
-	if (Auth::guest())
+	if (Auth::guest() || (Auth::user() && (!Auth::user()->active || is_null(Auth::user()->admin))))
 	{
 		if (Request::ajax())
 		{
@@ -43,7 +43,8 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('login');
+			Flash::error('No tiene los privilegios necesarios para acceder');
+			return Redirect::guest('admin/login');
 		}
 	}
 });
@@ -87,4 +88,24 @@ Route::filter('csrf', function()
 	{
 		throw new Illuminate\Session\TokenMismatchException;
 	}
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| CSRF Protection Filter only for post, put, delete requests
+|--------------------------------------------------------------------------
+|
+| The CSRF filter is responsible for protecting your application against
+| cross-site request forgery attacks. If this special token in a user
+| session does not match the one given in this request, we'll bail.
+|
+*/
+
+Route::filter('csrf.forms', function()
+{
+  if (Request::method() !== 'GET' && Session::token() !== Input::get('_token'))
+  {
+    throw new Illuminate\Session\TokenMismatchException;
+  }
 });
