@@ -22,13 +22,13 @@ class SessionsController extends BaseController {
         }
 
         Flash::error('No ha sido posible autenticarse con las credenciales proporcionadas');
-        return Redirect::action('Admin\CoursesController@index')->withInput();
+        return Redirect::action('Admin\SessionsController@create')->withInput();
     }
 
     public function destroy()
     {
         Auth::logout();
         Flash::success('Has cerrado tu session con éxito.');
-        Redirect::home();
+        return Redirect::action('Admin\SessionsController@create');
     }
 }

@@ -42,7 +42,7 @@
               <a href="#"><span class="glyphicon glyphicon-user"></span> Perfil</a>
             </li>
             <li>
-              <a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+              <a href="{{ action('Admin\SessionsController@destroy') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
             </li>
           </ul>
         </li>
