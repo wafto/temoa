@@ -1,6 +1,9 @@
 <?php namespace Admin\User;
 
-use BaseController, View;
+use Temoa\Command\Admin\ListCommand;
+
+use Temoa\Command\ListingSanitizer;
+use BaseController, View, Flash, Redirect, Request;
 
 class AdminsController extends BaseController {
 
@@ -12,7 +15,15 @@ class AdminsController extends BaseController {
 	 */
 	public function index()
 	{
-		//
+		$input = Request::only('sort', 'direction', 'page', 'size', 'search');
+
+		$data = $this->execute(ListCommand::class, $input, [
+			ListingSanitizer::class
+		]);
+
+		$users = $this->getPaginator($data);
+
+		return View::make('admin.users.admins.index', compact('users'));
 	}
 
 	/**

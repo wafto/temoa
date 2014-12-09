@@ -1,6 +1,9 @@
 <?php namespace Admin\User;
 
-use BaseController, View;
+use Temoa\Command\CivilServant\ListCommand;
+
+use Temoa\Command\ListingSanitizer;
+use BaseController, View, Flash, Redirect, Request;
 
 class CivilServantsController extends BaseController {
 
@@ -12,7 +15,15 @@ class CivilServantsController extends BaseController {
 	 */
 	public function index()
 	{
-		//
+		$input = Request::only('sort', 'direction', 'page', 'size', 'search');
+
+		$data = $this->execute(ListCommand::class, $input, [
+			ListingSanitizer::class
+		]);
+
+		$users = $this->getPaginator($data);
+
+		return View::make('admin.users.civilservants.index', compact('users'));
 	}
 
 	/**
