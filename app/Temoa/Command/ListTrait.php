@@ -30,7 +30,7 @@ trait ListTrait {
             ->paginate($command->page, $command->size)
             ->setItems()
             ->setPage($command->page)
-            ->setSize($command->size);
+            ->setSize();
 
         return (object) $this->result;
     }
@@ -113,9 +113,9 @@ trait ListTrait {
         return $this;
     }
 
-    protected function setSize($size)
+    protected function setSize()
     {
-        $this->result['size'] = $size;
+        $this->result['size'] = count($this->result['items']);
         return $this;
     }
 

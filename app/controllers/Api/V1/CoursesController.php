@@ -29,12 +29,12 @@ class CoursesController extends V1Controller {
         try
         {
             $course = $this->execute(ReadCommand::class, compact('id'));
-            return $this->itemResponseTransformed($course);
         }
         catch (ModelNotFoundException $e)
         {
             return $this->notFoundResponse(sprintf('No se encontro el curso con el id %s', $id));
         }
+        return $this->itemResponseTransformed($course);
     }
 
 }

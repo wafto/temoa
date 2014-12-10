@@ -14,7 +14,7 @@ trait CourseTransformerTrait {
             'descripcion' => $this->description,
             'duracion' => $this->duration,
             'formato' => $this->format,
-            'cancelado' => $this->cancelled ? true : false,
+            'cancelado' => $this->cancelled ? 1 : 0,
             'creado' => $this->created_at->format('Y-m-d h:i:s'),
             'actualizado' => $this->updated_at->format('Y-m-d h:i:s'),
         ];
@@ -24,5 +24,4 @@ trait CourseTransformerTrait {
     {
 
     }
-
 }
