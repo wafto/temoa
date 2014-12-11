@@ -6,6 +6,7 @@
       <div class="panel-body">
 
         <div class="row">
+
           <div class="col-xs-6">
             <div class="form-group">
               {{ Form::label('internal_number', 'Folio interno') }}
@@ -13,6 +14,7 @@
               {{ $errors->first('internal_number', '<div class="text-danger">:message</div>') }}
             </div>
           </div>
+
           <div class="col-xs-6">
             <div class="form-group">
               {{ Form::label('external_number', 'Folio externo') }}
@@ -29,6 +31,35 @@
               {{ Form::text('name', $model ? $model->name : '', ['class' => 'form-control']) }}
               {{ $errors->first('name', '<div class="text-danger">:message</div>') }}
             </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              {{ Form::label('image', 'Imagen') }}
+              {{ Form::text('image', $model ? $model->image : '', ['class' => 'form-control']) }}
+              {{ $errors->first('image', '<div class="text-danger">:message</div>') }}
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="form-group">
+              {{ Form::label('start_at', 'Fecha de Inicio') }}
+              <div class="input-group date" id="dtstart" data-date-format="YYYY-MM-DD HH:mm:ss">
+                {{ Form::text('start_at', null, ['class' => 'form-control']) }}
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+              {{ $errors->first('start_at', '<div class="text-danger">:message</div>') }}
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+              {{ Form::text('tags', null, ['class' => 'form-control tm-input', 'placeholder' => 'Etiquetas']) }}
+              {{ $errors->first('tags', '<div class="text-danger">:message</div>') }}
           </div>
         </div>
 
@@ -103,3 +134,15 @@
       </div>
     </div>
 {{ Form::close() }}
+
+@section('javascripts')
+  @parent
+  <script>
+    $(function () {
+      $('#dtstart').datetimepicker();
+      var tagApi = $('.tm-input').tagsManager({
+        prefilled: [{{ $model ? implode(',', $model->tags) : '' }}]
+      });
+    });
+  </script>
+@stop

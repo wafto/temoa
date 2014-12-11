@@ -55,6 +55,21 @@ class UpdateCommand {
     public $cancelled;
 
     /**
+     * @var string
+     */
+    public $image;
+
+    /**
+     * @var string
+     */
+    public $start_date;
+
+    /**
+     * @var array
+     */
+    public $tags;
+
+    /**
      * @param string  internal_number
      * @param string  external_number
      * @param string  name
@@ -66,7 +81,7 @@ class UpdateCommand {
      * @param boolean visible
      * @param boolean cancelled
      */
-    public function __construct($id, $internal_number, $external_number, $name, $category, $partner_id, $description, $duration, $format, $visible, $cancelled)
+    public function __construct($id, $internal_number, $external_number, $name, $category, $partner_id, $description, $duration, $format, $visible, $cancelled, $image, $start_date, $tags)
     {
         $this->id = $id;
         $this->internal_number = $internal_number;
@@ -79,6 +94,8 @@ class UpdateCommand {
         $this->format = $format;
         $this->visible = $visible;
         $this->cancelled = $cancelled;
+        $this->image = $image;
+        $this->start_date = $start_date;
+        $this->tags = $tags;
     }
-
 }

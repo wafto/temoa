@@ -1,7 +1,7 @@
 <?php namespace Temoa\Command\Course;
 
 use Laracasts\Commander\CommandHandler;
-use Course, Category;
+use Course, Category, Tag;
 
 class UpdateCommandHandler implements CommandHandler {
 
@@ -9,10 +9,13 @@ class UpdateCommandHandler implements CommandHandler {
 
     protected $modelCategory;
 
-    public function __construct(Course $modelCourse, Category $modelCategory)
+    protected $modelTag;
+
+    public function __construct(Course $modelCourse, Category $modelCategory, Tag $modelTag)
     {
         $this->modelCourse = $modelCourse;
         $this->modelCategory = $modelCategory;
+        $this->modelTag = $modelTag;
     }
 
     /**
@@ -23,6 +26,7 @@ class UpdateCommandHandler implements CommandHandler {
      */
     public function handle($command)
     {
+        $tags = [];
         $instance = $this->modelCourse->findOrFail($command->id);
         $category = $this->modelCategory->where('name', $command->category)->first();
         $instance->internal_number = $command->internal_number;
@@ -35,8 +39,13 @@ class UpdateCommandHandler implements CommandHandler {
         $instance->format = $command->format;
         $instance->visible = !empty($command->visible) && intval($command->visible) == '1';
         $instance->cancelled = !empty($command->cancelled) && intval($command->cancelled) == '1';
+        $instance->modelCourse->image = $command->image;
+        $instance->modelCourse->start_date = $command->start_date;
+        foreach ($command->tags as $tagName) {
+            $tags[] = $this->modelTag->firstOrCreate(['name' => $tagName])->id;
+        }
+        $this->modelCourse->tags()->sync($tags);
         $instance->save();
         return $instance;
     }
-
 }

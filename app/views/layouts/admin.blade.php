@@ -10,6 +10,7 @@
     <!-- css -->
     {{ HTML::style("/css/bootstrap.min.css") }}
     {{ HTML::style("/css/bootstrap-datetimepicker.min.css") }}
+    {{ HTML::style("/css/tagmanager.css") }}
     @show
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -29,6 +30,7 @@
     {{ HTML::script("/js/bootstrap.min.js") }}
     {{ HTML::script("/js/moment-with-locales.min.js") }}
     {{ HTML::script("/js/bootstrap-datetimepicker.min.js") }}
+    {{ HTML::script("/js/tagmanager.js") }}
     @show
 
   </body>

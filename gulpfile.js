@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     autoprefix = require('gulp-autoprefixer'),
     del = require('del'),
     jf = require('jsonfile'),
-    fs = require('fs');
+    fs = require('fs'),
+    minifyCSS = require('gulp-minify-css');
 
 var directory = {
     less: 'app/assets/less',
@@ -51,13 +52,22 @@ gulp.task('bootstrap', function () {
 });
 
 gulp.task('bootstrap:dtpicker', function () {
-  var dp = directory.bower + '/eonasdan-bootstrap-datetimepicker/build/';
-  gulp.src(dp + '/css/bootstrap-datetimepicker.min.css')
-    .pipe(gulp.dest(directory.target.css));
-  gulp.src(dp + '/js/bootstrap-datetimepicker.min.js')
-    .pipe(gulp.dest(directory.target.js));
-  gulp.src(directory.bower + '/moment/min/moment-with-locales.min.js')
-    .pipe(gulp.dest(directory.target.js));
+    var dp = directory.bower + '/eonasdan-bootstrap-datetimepicker/build/';
+    gulp.src(dp + '/css/bootstrap-datetimepicker.min.css')
+        .pipe(gulp.dest(directory.target.css));
+    gulp.src(dp + '/js/bootstrap-datetimepicker.min.js')
+        .pipe(gulp.dest(directory.target.js));
+    gulp.src(directory.bower + '/moment/min/moment-with-locales.min.js')
+        .pipe(gulp.dest(directory.target.js));
 });
 
-gulp.task('default', ['clean', 'jquery', 'bootstrap', 'bootstrap:dtpicker']);
+gulp.task('tagmanager', function () {
+    gulp.src(directory.bower + '/tagmanager/tagmanager.css')
+        .pipe(minifyCSS({keepBreaks:true}))
+        .pipe(gulp.dest(directory.target.css));
+    gulp.src(directory.bower + '/tagmanager/tagmanager.js')
+        .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
+        .pipe(gulp.dest(directory.target.js));
+});
+
+gulp.task('default', ['jquery', 'bootstrap', 'bootstrap:dtpicker', 'tagmanager']);

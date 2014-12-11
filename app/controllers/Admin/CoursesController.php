@@ -49,7 +49,9 @@ class CoursesController extends BaseController {
 	 */
 	public function store()
 	{
-		$input = Request::only('internal_number', 'external_number', 'name', 'category', 'partner_id', 'description', 'duration', 'format', 'visible', 'cancelled');
+		$input = Request::only('internal_number', 'external_number', 'name', 'category', 'partner_id', 'description', 'duration', 'format', 'visible', 'cancelled', 'image', 'start_date', 'tags');
+
+		$input['tags'] = Request::has('hidden-tags') ? explode(',', Request::get('hidden-tags')) : [];
 
 		$course = $this->execute(CreateCommand::class, $input);
 
@@ -95,7 +97,9 @@ class CoursesController extends BaseController {
 	 */
 	public function update($id)
 	{
-		$input = array_merge(compact('id'), Request::only('internal_number', 'external_number', 'name', 'category', 'partner_id', 'description', 'duration', 'format', 'visible', 'cancelled'));
+		$input = array_merge(compact('id'), Request::only('internal_number', 'external_number', 'name', 'category', 'partner_id', 'description', 'duration', 'format', 'visible', 'cancelled', 'image', 'start_date', 'tags'));
+
+		$input['tags'] = Request::has('hidden-tags') ? explode(',', Request::get('hidden-tags')) : [];
 
 		$course = $this->execute(UpdateCommand::class, $input);
 

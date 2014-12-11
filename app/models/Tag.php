@@ -16,6 +16,8 @@ class Tag extends Eloquent {
      */
     protected $hidden = [];
 
+    protected $fillable = ['name'];
+
     public function courses()
     {
         return $this->belongsToMany('Course', 'courses_tags');
