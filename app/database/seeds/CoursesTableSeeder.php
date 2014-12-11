@@ -34,13 +34,15 @@ class CoursesTableSeeder extends Seeder {
             $course->internal_number = $internal;
             $course->external_number = $external;
             $course->name = $faker->sentence;
-            $course->description = $faker->text;
+            $course->description = $faker->text(1200);
             $course->duration = $faker->randomElement([4, 8, 16, 32, 40, 48, 80]);
             $course->format = $faker->randomElement(['presencial', 'línea']);
             $course->visible = $faker->boolean(90);
-            $course->cancelled = $faker->boolean(90);
+            $course->cancelled = $faker->boolean(10);
             $course->category_id = $faker->randomElement($categories);
             $course->partner_id = $faker->randomElement($partners);
+            $course->start_date = $faker->dateTimeBetween('-1 year', '+2 years');
+            $course->image = $faker->imageUrl(640, 480);
 
             $course->save();
         }

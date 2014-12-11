@@ -46,4 +46,8 @@ class Course extends Eloquent implements TransformerInterface {
         return $this->hasMany('TakenCourse');
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany('Tag', 'courses_tags');
+    }
 }

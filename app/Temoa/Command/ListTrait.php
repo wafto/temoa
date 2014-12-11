@@ -109,7 +109,7 @@ trait ListTrait {
 
     protected function setPage($page)
     {
-        $this->result['page'] = $page;
+        $this->result['page'] = intval($page);
         return $this;
     }
 
