@@ -1,7 +1,7 @@
 <?php namespace Temoa\Command\Course;
 
 use Laracasts\Commander\CommandHandler;
-use Course, Category, Tag;
+use Course, Category, Tag, DateTime, Config;
 
 class UpdateCommandHandler implements CommandHandler {
 
@@ -28,6 +28,13 @@ class UpdateCommandHandler implements CommandHandler {
     {
         $tags = [];
         $instance = $this->modelCourse->findOrFail($command->id);
+        if ($command->image) {
+            $extension = $command->image->getClientOriginalExtension();
+            $path = sprintf('/uploads/%s', strtolower(str_random(8)));
+            $destinationPath = sprintf('%s%s', public_path(), $path);
+            $command->image->move($destinationPath, $command->image->getClientOriginalName());
+            $instance->image = sprintf('%s%s/%s', Config::get('app.url'), $path, $command->image->getClientOriginalName());
+        }
         $category = $this->modelCategory->where('name', $command->category)->first();
         $instance->internal_number = $command->internal_number;
         $instance->external_number = $command->external_number;
@@ -39,13 +46,12 @@ class UpdateCommandHandler implements CommandHandler {
         $instance->format = $command->format;
         $instance->visible = !empty($command->visible) && intval($command->visible) == '1';
         $instance->cancelled = !empty($command->cancelled) && intval($command->cancelled) == '1';
-        $instance->modelCourse->image = $command->image;
-        $instance->modelCourse->start_date = $command->start_date;
+        $instance->start_at = new DateTime($command->start_at);
+        $instance->save();
         foreach ($command->tags as $tagName) {
             $tags[] = $this->modelTag->firstOrCreate(['name' => $tagName])->id;
         }
-        $this->modelCourse->tags()->sync($tags);
-        $instance->save();
+        $instance->tags()->sync($tags);
         return $instance;
     }
 }

@@ -141,7 +141,7 @@
     $(function () {
       $('#dtstart').datetimepicker();
       var tagApi = $('.tm-input').tagsManager({
-        prefilled: [{{ $model ? implode(',', $model->tags) : '' }}]
+        prefilled: [{{ ($model && $model->tags->count()) ? sprintf('"%s"', $model->tags->implode('name', '","')) : '' }}]
       });
     });
   </script>

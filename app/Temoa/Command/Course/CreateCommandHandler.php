@@ -49,7 +49,6 @@ class CreateCommandHandler implements CommandHandler {
             $tags[] = $this->modelTag->firstOrCreate(['name' => $tagName])->id;
         }
         $this->modelCourse->tags()->sync($tags);
-
         return $this->modelCourse;
     }
 }
