@@ -17,6 +17,7 @@ class CreateValidator extends FormValidator {
         'partner_id' => 'required|exists:partners,id',
         'duration' => 'required|numeric',
         'format' => 'required|in:presencial,línea',
+        'start_at' => 'required|date',
+        'image' => 'required|image'
     ];
-
 }

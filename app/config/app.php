@@ -127,7 +127,7 @@ return array(
 		'Laracasts\Validation\ValidationServiceProvider',
 		'Laracasts\Flash\FlashServiceProvider',
 		'Laracasts\Utilities\UtilitiesServiceProvider',
-		'Dingo\Api\Provider\ApiServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
 
 	),
 
@@ -197,7 +197,7 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
 		'OAuth'             => 'Artdarek\OAuth\Facade\OAuth',
 		'Flash'             => 'Laracasts\Flash\Flash',
-		'API'               => 'Dingo\Api\Facade\API',
+		'Image'             => 'Intervention\Image\Facades\Image',
 
 	),
 

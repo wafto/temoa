@@ -12,7 +12,7 @@
 		"laracasts/flash": "~1.0",
 		"laracasts/utilities": "~1.0",
 		"laracasts/presenter": "0.1.*",
-		"dingo/api": "0.7.*"
+		"intervention/image": "dev-master"
 	},
 	"require-dev": {
 	    "way/generators": "~2.0",

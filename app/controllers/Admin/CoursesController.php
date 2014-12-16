@@ -49,7 +49,7 @@ class CoursesController extends BaseController {
 	 */
 	public function store()
 	{
-		$input = Request::only('internal_number', 'external_number', 'name', 'category', 'partner_id', 'description', 'duration', 'format', 'visible', 'cancelled', 'image', 'start_date', 'tags');
+		$input = Request::only('internal_number', 'external_number', 'name', 'category', 'partner_id', 'description', 'duration', 'format', 'visible', 'cancelled', 'image', 'start_at', 'tags');
 
 		$input['tags'] = Request::has('hidden-tags') ? explode(',', Request::get('hidden-tags')) : [];
 
@@ -97,7 +97,7 @@ class CoursesController extends BaseController {
 	 */
 	public function update($id)
 	{
-		$input = array_merge(compact('id'), Request::only('internal_number', 'external_number', 'name', 'category', 'partner_id', 'description', 'duration', 'format', 'visible', 'cancelled', 'image', 'start_date', 'tags'));
+		$input = array_merge(compact('id'), Request::only('internal_number', 'external_number', 'name', 'category', 'partner_id', 'description', 'duration', 'format', 'visible', 'cancelled', 'image', 'start_at', 'tags'));
 
 		$input['tags'] = Request::has('hidden-tags') ? explode(',', Request::get('hidden-tags')) : [];
 

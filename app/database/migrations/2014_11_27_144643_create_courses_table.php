@@ -26,7 +26,7 @@ class CreateCoursesTable extends Migration {
 			$table->boolean('visible')->default(1);
 			$table->boolean('cancelled')->default(0);
 			$table->string('image', 255);
-			$table->dateTime('start_date');
+			$table->dateTime('start_at');
 			$table->timestamps();
 			$table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 			$table->foreign('partner_id')->references('id')->on('partners')->onDelete('cascade');

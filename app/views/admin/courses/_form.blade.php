@@ -1,4 +1,4 @@
-{{ Form::open(['action' => $action, 'role' => 'form', 'method' => $method]) }}
+{{ Form::open(['action' => $action, 'role' => 'form', 'method' => $method, 'files' => true]) }}
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">{{ $title }}</h3>
@@ -37,21 +37,21 @@
         <div class="row">
           <div class="col-xs-6">
             <div class="form-group">
-              {{ Form::label('image', 'Imagen') }}
-              {{ Form::text('image', $model ? $model->image : '', ['class' => 'form-control']) }}
-              {{ $errors->first('image', '<div class="text-danger">:message</div>') }}
-            </div>
-          </div>
-          <div class="col-xs-6">
-            <div class="form-group">
               {{ Form::label('start_at', 'Fecha de Inicio') }}
               <div class="input-group date" id="dtstart" data-date-format="YYYY-MM-DD HH:mm:ss">
-                {{ Form::text('start_at', null, ['class' => 'form-control']) }}
+                {{ Form::text('start_at', $model ? $model->start_at : '', ['class' => 'form-control']) }}
                 <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
                 </span>
               </div>
               {{ $errors->first('start_at', '<div class="text-danger">:message</div>') }}
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="form-group">
+              {{ Form::label('image', 'Imagen') }}
+              {{ Form::file('image') }}
+              {{ $errors->first('image', '<div class="text-danger">:message</div>') }}
             </div>
           </div>
         </div>

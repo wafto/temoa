@@ -60,7 +60,7 @@ class CreateCommand {
     /**
      * @var string
      */
-    public $start_date;
+    public $start_at;
 
     /**
      * @var array
@@ -79,7 +79,7 @@ class CreateCommand {
      * @param boolean visible
      * @param boolean cancelled
      */
-    public function __construct($internal_number, $external_number, $name, $category, $partner_id, $description, $duration, $format, $visible, $cancelled, $image, $start_date, $tags)
+    public function __construct($internal_number, $external_number, $name, $category, $partner_id, $description, $duration, $format, $visible, $cancelled, $image, $start_at, $tags)
     {
         $this->internal_number = $internal_number;
         $this->external_number = $external_number;
@@ -92,7 +92,7 @@ class CreateCommand {
         $this->visible = $visible;
         $this->cancelled = $cancelled;
         $this->image = $image;
-        $this->start_date = $start_date;
+        $this->start_at = $start_at;
         $this->tags = $tags;
     }
 

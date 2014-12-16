@@ -41,7 +41,7 @@ class CoursesTableSeeder extends Seeder {
             $course->cancelled = $faker->boolean(10);
             $course->category_id = $faker->randomElement($categories);
             $course->partner_id = $faker->randomElement($partners);
-            $course->start_date = $faker->dateTimeBetween('-1 year', '+2 years');
+            $course->start_at = $faker->dateTimeBetween('-1 year', '+2 years');
             $course->image = $faker->imageUrl(640, 480);
 
             $course->save();
