@@ -20,8 +20,8 @@
 		<link rel="icon" href="favicon.ico">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-		<link href="css/carousel.css" rel="stylesheet">
-		<link href="css/custom.css" rel="stylesheet">
+		<link href="/css/carousel.css" rel="stylesheet">
+		<link href="/css/custom.css" rel="stylesheet">
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
@@ -126,7 +126,7 @@
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script type="text/javascript" src="js/carousels.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="/js/carousels.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
 	</body>
 </html>
