@@ -49,6 +49,18 @@ Route::filter('auth.admin', function()
 	}
 });
 
+Route::filter('auth.api', function()
+{
+	if (Request::method() !== 'GET')
+	{
+		Auth::basic();
+
+		if (Auth::guest() || (Auth::user() && (!Auth::user()->active || is_null(Auth::user()->partner))))
+		{
+			return Response::json(['message' => 'Unauthorized'], 401);
+		}
+	}
+});
 
 Route::filter('auth.basic', function()
 {

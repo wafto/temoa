@@ -1,5 +1,10 @@
 <?php
 
+Route::get('/', function()
+{
+    return Redirect::action('Api\V1\CoursesController@index');
+});
+
 Route::get('admin/login', 'Admin\SessionsController@create');
 Route::get('admin/logout', 'Admin\SessionsController@destroy');
 Route::resource('admin/sessions', 'Admin\SessionsController', ['only' => ['create', 'store', 'destroy']]);
@@ -32,9 +37,9 @@ Route::group(['prefix' => 'admin', 'before' => ['auth.admin', 'csrf.forms']], fu
 
 });
 
-Route::group(['prefix' => 'api/v1'], function()
+Route::group(['prefix' => 'api/v1', 'before' => ['auth.api']], function()
 {
 
-    Route::resource('cursos', 'Api\V1\CoursesController', ['only' => ['index', 'show', 'create', 'store', 'destroy']]);
+    Route::resource('cursos', 'Api\V1\CoursesController', ['only' => ['index', 'show', 'store', 'update', 'destroy']]);
 
 });

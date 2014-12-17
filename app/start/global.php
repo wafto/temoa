@@ -58,7 +58,7 @@ App::error(function(Laracasts\Validation\FormValidationException $exception, $co
 
 App::error(function(Illuminate\Database\Eloquent\ModelNotFoundException $exception, $code)
 {
-    return '404';
+    return Response::make('404', 404);
 });
 
 
