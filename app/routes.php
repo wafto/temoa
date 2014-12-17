@@ -38,3 +38,30 @@ Route::group(['prefix' => 'api/v1'], function()
     Route::resource('cursos', 'Api\V1\CoursesController', ['only' => ['index', 'show', 'create', 'store', 'destroy']]);
 
 });
+
+
+
+// Rutas Front
+
+
+// Vsita Home
+Route::get('/', function(){
+    return "Home"
+});
+
+// Vista Aliados
+Route::get('aliados', function(){
+    return "aliados";
+});
+
+// Vista Conócenos 
+Route::get('conocenos', function(){
+    return "conocenos";
+});
+
+// Vista Contáctanos
+Route::get('contactanos', function(){
+    return 'contactanos';
+});
+
+
