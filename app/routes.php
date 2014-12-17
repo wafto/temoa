@@ -46,22 +46,22 @@ Route::group(['prefix' => 'api/v1'], function()
 
 // Vsita Home
 Route::get('/', function(){
-    return "Home"
+    return View::make('front.static.home');
 });
 
 // Vista Aliados
 Route::get('aliados', function(){
-    return "aliados";
+    return View::make('front.static.aliados');
 });
 
 // Vista Conócenos 
 Route::get('conocenos', function(){
-    return "conocenos";
+    return View::make('front.static.conocenos');
 });
 
 // Vista Contáctanos
 Route::get('contactanos', function(){
-    return 'contactanos';
+    return View::make('front.static.contactanos');
 });
 
 
