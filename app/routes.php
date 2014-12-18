@@ -1,10 +1,5 @@
 <?php
 
-Route::get('/', function()
-{
-    return Redirect::action('Api\V1\CoursesController@index');
-});
-
 Route::get('admin/login', 'Admin\SessionsController@create');
 Route::get('admin/logout', 'Admin\SessionsController@destroy');
 Route::resource('admin/sessions', 'Admin\SessionsController', ['only' => ['create', 'store', 'destroy']]);
@@ -59,7 +54,7 @@ Route::get('aliados', function(){
     return View::make('front.static.aliados');
 });
 
-// Vista Conócenos 
+// Vista Conócenos
 Route::get('conocenos', function(){
     return View::make('front.static.conocenos');
 });
