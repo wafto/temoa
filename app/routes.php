@@ -43,3 +43,30 @@ Route::group(['prefix' => 'api/v1', 'before' => ['auth.api']], function()
     Route::resource('cursos', 'Api\V1\CoursesController', ['only' => ['index', 'show', 'store', 'update', 'destroy']]);
 
 });
+
+
+
+// Rutas Front
+
+
+// Vsita Home
+Route::get('/', function(){
+    return View::make('front.static.home');
+});
+
+// Vista Aliados
+Route::get('aliados', function(){
+    return View::make('front.static.aliados');
+});
+
+// Vista Conócenos 
+Route::get('conocenos', function(){
+    return View::make('front.static.conocenos');
+});
+
+// Vista Contáctanos
+Route::get('contactanos', function(){
+    return View::make('front.static.contactanos');
+});
+
+
