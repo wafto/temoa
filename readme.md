@@ -2,9 +2,20 @@
 
 [![Build Status](https://travis-ci.org/wafto/temoa.svg)](https://travis-ci.org/wafto/temoa)
 
-### Api POST example
+### Funcionamiento del API (Cursos)
 
-curl --user nayeli.connelly@koepp.com:secret -H "Content-Type: application/json" -d '{
+El API para este DEMO consiste en las altas, bajas, cambios y consultas para los diferentes cursos que el Socio Tecnológico pueda manipular comodamente desde un API Rest, el cual consta de las siguientes acciones disponibles:
+
+|                   | POST                   | GET                                                | PUT                                   | DELETE |
+|-------------------|------------------------|----------------------------------------------------|---------------------------------------|--------|
+| api/v1/cursos     | Se crea un nuevo curso | Se listan los cursos                               | N/A                                   | N/A    |
+| api/v1/cursos/:id | N/A                    | Ver información del curso con el identificador :id | Editar curso con el identificador :id |        |
+
+Para el funcionamiento correcto de la adicción del curso mediante el API se debe seguir un ejemplo como el siguiente (cabe recordar que el usuario y contraseña debe ser válida y perteneciente a un socio tecnológico):
+
+```
+curl --user socio@example.com:secret -H "Content-Type: application/json" -d
+'{
   "folioExterno": "b5dfdb68d0c7c",
   "nombre": "Et aut voluptatem facere aut.",
   "categoria": "Desarollo y Sistemas",
@@ -22,7 +33,20 @@ curl --user nayeli.connelly@koepp.com:secret -H "Content-Type: application/json"
   "creado": "2014-12-16 01:41:19",
   "actualizado": "2014-12-16 01:41:19"
 }
-' http://temoa.app/api/v1/cursos
+' http://104.236.101.166/api/v1/cursos
+```
+Una vez realizado el post del curso las posibles respuestas pueden ser el mismo recurso en caso de éxito, en caso de algún error o bien los datos fueron incorrectos al intentar agregarlo la respuesta puede ser:
+
+```
+{"message":"Unauthorized"}
+```
+
+```
+{"error":true,"message":{"external_number":["The external number has already been taken."]}}
+```
+Dependiendo del resultado el mensaje de error varia.
+
+##### API - Listado de curso GET api/v1/cursos
 
 ### License
 
