@@ -11,7 +11,7 @@
 
 				<div class="buscador">
 
-					<form class="search-form" action="">
+					<form id="search-form" action="">
 						<p class="wrapper">
 							<input class="icon" type="text" placeholder="¿En qué quieres capacitarte?" name="search" class="search-text"/>
 						</p>
