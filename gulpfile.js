@@ -71,8 +71,8 @@ gulp.task('tagmanager', function () {
         .pipe(gulp.dest(directory.target.js));
 });
 
-gulp.task('custom', function() {
-    gulp.src(directory.assets + '/custom/css/carousels.css')
+gulp.task('custom', function () {
+    gulp.src(directory.assets + '/custom/css/carousel.css')
         .pipe(minifyCSS({keepBreaks:true}))
         .pipe(gulp.dest(directory.target.css));
     gulp.src(directory.assets + '/custom/css/custom.css')
@@ -82,6 +82,12 @@ gulp.task('custom', function() {
         .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
         .pipe(gulp.dest(directory.target.js));
     gulp.src(directory.assets + '/custom/js/custom.js')
+        .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
+        .pipe(gulp.dest(directory.target.js));
+    gulp.src(directory.assets + '/custom/js/mustache.min.js')
+        .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
+        .pipe(gulp.dest(directory.target.js));
+    gulp.src(directory.assets + '/custom/js/search.js')
         .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
         .pipe(gulp.dest(directory.target.js));
 });
