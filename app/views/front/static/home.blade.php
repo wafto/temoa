@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div id="wrapper"> <!-- Wrapper -->
+
 <!-- Banner -->
 <section>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -60,6 +62,10 @@
 
 	</div>
 	<!-- Testimonios -->
+
+	<hr>
+
+	<!-- Cursos Recientes / Creación de Cuenta -->
 
 	<div class="row clearfix">
 		<div class="col-md-12 column">
@@ -285,6 +291,10 @@
 		</div>
 	</div>
 
+	<!-- Cursos Recientes / Creación de Cuenta -->
+
+	<hr>
+
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 
@@ -356,4 +366,137 @@
 
 </div>
 <!-- Marketing -->
+
+</div> <!-- Wrapper -->
+
+<!-- Templates -->
+<template id="searchTemplate">
+
+	<section id="resultados-busqueda">
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-md-6">
+					<h4>Resultados de tu búsqueda: <span id="resultado-busqueda">Administrador de servidores</span></h4>
+				</div>
+
+				<div class="col-md-6">
+					<form class="search-form" action="" id="buscador-interno">
+						<p class="wrapper">
+							<input class="icon" type="text" placeholder="Buscar de nuevo..." name="search" class="search-text"/>
+						</p>
+					</form>
+				</div>
+
+			</div>
+
+			<div class="row clearfix">
+
+				<div class="col-md-3 column">
+					<div id="filtro-cursos">
+
+						<p id="num-res-cursos">5 cursos encontrados</p>
+						<h4>Organizar</h4>
+
+						<div id="filtro-fecha">
+							<h4>Por fecha de inicio</h4>
+							<ul>
+								<li>Comenzando hoy</li>
+								<li>Próxima semana</li>
+								<li>Próximo mes</li>
+								<li>Recién comenzado</li>
+								<li>Ritmo propio</li>
+							</ul>
+						</div>
+
+						<div id="filtro-modalidad">
+							<h4>Por modalidad</h4>
+							<ul>
+								<li>Presencial</li>
+								<li>En línea</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-md-9 column">
+
+					<table class="table table-striped table-bordered">
+
+						<thead>
+							<tr>
+								<th>Nombre del curso</th>
+								<th>Área</th>
+								<th>Fecha de inicio</th>
+								<th>Agregar</th>
+							</tr>
+						</thead>
+
+						<tbody id="courses">
+
+							<tr>
+								<td><span id="titulo-curso">Curso de administración de servidores con stack LAMP</span> <br><span id="nombre-socio">Centro ADM</span></td>
+								<td>Servidores</td>
+								<td>22 de enero, 2015</td>
+								<td>
+									<button id="agregar-favoritos" class="btn btn-default btn-sm" type="button" data-toggle="modal" data-target="#temario"><em class="glyphicon glyphicon-star"></em> Agregar</button>
+								</td>
+							</tr>
+
+						</tbody>
+
+					</table>
+
+					<div class="row" id="cargarMas"">
+					</div>
+
+					<button id="ver-perfil" class="btn btn-default" type="button"><em class="glyphicon glyphicon-eye-open"></em> Sugerir Curso</button>
+
+					<div class="btn-group btn-group-md pull-right">
+						<button id="agregar-favoritos" class="btn btn-default" type="button" data-toggle="modal" data-target="#temario"><em class="glyphicon glyphicon-filter"></em> Limpiar filtros</button>
+						<button id="agregar-favoritos" class="btn btn-default pull-right" type="button" data-toggle="modal" data-target="#temario"><em class="glyphicon glyphicon-chevron-right"></em> Ver cursos agregados</button>
+					</div>
+
+					
+
+				</div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="col-md-3 column">
+				</div>
+
+				<div class="col-md-9 column">
+					<div id="detalle-busqueda">
+
+					</div>
+				</div>
+
+			</div>
+		
+		</div>
+	</section>
+
+</template>
+
+<template id="courseTemplate">
+	<tr>
+		<td><span id="titulo-curso">@{{nombre}}</span> <br><span id="nombre-socio">Centro ADM</span></td>
+		<td>Servidores</td>
+		<td>22 de enero, 2015</td>
+		<td>
+			<button id="agregar-favoritos" class="btn btn-default btn-sm" type="button" data-toggle="modal" data-target="#temario"><em class="glyphicon glyphicon-star"></em> Agregar</button>
+		</td>
+	</tr>
+</template>
+@stop
+
+@section('scripts-bottom')
+	<script src="/js/carousels.js"></script>
+	<script src="/js/mustache.min.js"></script>
+	<script src="/js/search.js"></script>
 @stop
