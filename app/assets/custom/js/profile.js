@@ -113,7 +113,7 @@
 
 		$this.fadeOut();
 
-		window.location = '/profile';
+		window.location = '/continuar';
 
 	});
 	

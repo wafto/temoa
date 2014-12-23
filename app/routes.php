@@ -78,3 +78,8 @@ Route::get('logout', function(){
 Route::get('profile', function(){
     return View::make('front.static.profile');
 });
+
+// Vista Continuar
+Route::get('continuar', function(){
+    return View::make('front.static.confirmation');
+});
