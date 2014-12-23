@@ -56,7 +56,7 @@
 							<li><a href="/aliados">Aliados</a></li>
 							<li><a href="/actualidad">Actualidad</a></li>
 							<li><a href="/conocenos">Conócenos</a></li>
-							<li><a href="/actualidad">Contáctanos</a></li>
+							<li><a href="/contactanos">Contáctanos</a></li>
 							<li><a href="/acceder">Acceder</a></li>
 							<li><a href="/registrarse">Registrarse</a></li>
 						</ul>
@@ -130,11 +130,41 @@
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
+	<!--<script src="/js/bootstrap.min.js"></script>-->
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 	<!-- Scripts Bottom -->
 	@yield('scripts-bottom')
 	<!-- Scripts Bottom -->
+
+	<!-- Modals -->
+
+	<!-- Login -->
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">TEMOA Login</h4>
+				</div>
+
+				<div class="modal-body">
+					...
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-primary" id="loginSubmit">Entrar</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- Login -->
+
+
+	<!-- Modals -->
 
 	</body>
 </html>

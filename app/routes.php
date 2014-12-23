@@ -64,4 +64,22 @@ Route::get('contactanos', function(){
     return View::make('front.static.contactanos');
 });
 
+// Vista Login
+Route:: get('login', function(){
+    return View::make('front.static.login');
+});
 
+// Vista Logout
+Route::get('logout', function(){
+    return View::make('front.static.logout');
+});
+
+// Vista Profile
+Route::get('profile', function(){
+    return View::make('front.static.profile');
+});
+
+// Vista Continuar
+Route::get('continuar', function(){
+    return View::make('front.static.confirmation');
+});

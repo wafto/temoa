@@ -1,6 +1,7 @@
-(function(){
+(function($){
 
 	var $search        = $('#search-form'),
+		user           = store.get('user'),
 		baseURL        = "/api/v1/cursos?",
 		courseTemplate = $('#courseTemplate').html(),
 		searchTemplate = $('#searchTemplate').html(),
@@ -8,9 +9,9 @@
 		currentPage,
 		totalPages;
 
-	$search.on('submit', function(evt){
+	$('body').on('submit', '#search-form', function(evt){
 
-		var searchTerm = $search.find("input").val(),
+		var searchTerm = $(this).find("input").val(),
 			url        = baseURL + "search[name][lk]=" + searchTerm;
 		
 		$.ajax({
@@ -28,6 +29,11 @@
 
 				$('#wrapper').html(searchTemplate);
 
+			} else{
+
+				$('#courses').html('');
+				$('#cargarMas').html('');
+
 			}
 
 			var $courses = $('#courses');
@@ -35,6 +41,13 @@
 			$.each(searchResults, function(i, course){
 
 				$courses.append(Mustache.render(courseTemplate, course));
+
+				var $button = $('button[data-id=' + course.id + ']');
+
+
+				if(user.favoritos.indexOf(course.id) != -1){
+					$button.remove();
+				}
 
 			});
 
@@ -85,4 +98,5 @@
 
 	});
 
-})();
+
+})($);
