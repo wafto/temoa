@@ -245,7 +245,7 @@ Link a Google Drive: https://drive.google.com/folderview?id=0Bz71CcNvpZFDSy01Szh
 
 ### MANUAL DEL USUARIO
 
-Link a Google Drive: https://docs.google.com/document/d/1u3Hx6l-R1qcORsIkBYdwcw2dXP05IqPTSkGPwJ4ZUf4
+Link a Google Drive: https://drive.google.com/open?id=0Bz71CcNvpZFDWFRjTlJsVDh6ZkE
 
 ### DOCUMENTOS DE APOYO
 
