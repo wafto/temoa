@@ -1,6 +1,60 @@
-## The Temoa Hub
+## DEMO TEMOA
 
 [![Build Status](https://travis-ci.org/wafto/temoa.svg)](https://travis-ci.org/wafto/temoa)
+
+### VISIÓN
+
+Temoa es mas que un simple gestor de cursos con un buscador, es una plataforma integral, un hub para el desarrollo profesional de los funcionarios públicos y un vinculo transparente y eficiente entre los proveedores de capacitación y las instituciones gubernamentales, lo que les permitirá mejorar su oferta, tener mayor claridad en sus necesidades y coadyuvar al desarrollo de los profesionales de las TIC en el sector gubernamental, gracias a una poderosa API REST que posibilita la comunicación bidireccional y su consumo como servicio web, para que de una forma amigable, los funcionarios públicos puedan buscar, agregar e inscribirse a diversos cursos, talleres o diplomados, tanto presenciales o en línea y visualizar recomendaciones, progreso, además de contar una ficha personalizada que incrementara su visibilidad como profesional de las TIC.
+
+### EL PROTOTIPO
+
+Presentamos un prototipo de nuestra aplicación web en la que desarrollamos dos tanto frontend como backend, en el caso del frontend, diseñamos una interfaz grafica estética y funcional, pensando en la facilidad de uso y agilidad para realizar las interacciones, todo ello utilizando HTML5, CSS3 y JS, en el caso del backend, utilizamos un poderoso framework de PHP llamado Laravel, con el cual se desarrollo una API REST cuya documentación se encuentra en este mismo documento, asi mismo desarrollamos un dashboard para la administración de dependencias, funcionarios, socios y ofertas de capacitación, todo esto, reflejo del modelo de base de datos MySQL que generamos y de la cual, gracias a la API podemos comunicarnos bidireccionalmente. 
+Presentamos el caso de uso de funcionario publico realizando una búsqueda de capacitación en su hub, desde el login hasta su solicitud de inscripción.
+
+### PROPUESTA DE VALOR
+
+• Consumo y  de datos via API REST (No se hacen queries directamente a la base de datos desde la capa de presentación).
+• Sistema de búsqueda concreto y de alto desempeño ya que nos devuelve objetos JSON.
+• Diseño de interfaz claro, estético y funcional, facilitando su uso y adopción.
+• Lograr la solicitud de inscripción a una capacitación en cuatro interacciones mediante búsqueda o dos interacciones mediante listado de oferta académica.
+• Fácil administración vía dashboard para operaciones CRUD sobre funcionarios, dependencias, socios y oferta académica.  
+
+### ESPECIFICACIONES TÉCNICAS
+
+Aplicación web desarrollada sobre Laravel 5 (PHP-MySQL), consumo de datos via API REST y presentación en vistas HTML5 (Bootstrap + Custom CSS + Custom JS).
+
+Al ser un prototipo nos enfocamos en presentar de forma estética y funcional el consumo de datos via APIen el frontend.
+
+### REQUISITOS (En desarrollo)
+
+
+### INSTALACIÓN
+
+Para instalar TEMOA en un entorno local vamos a usar una máquina virtual y necesitamos descargar e instalar:
+
+http://virtualbox.org
+http://vagrantup.com
+
+Una vez contando con Virtual Box y Vagrant, vamos a utilizar Homestead de Laravel para clonar una Virtual Box con todo lo necesario para simular el entorno de de producción.
+
+Trabajaremos en linea de comando o terminal.
+
+Agregamos la caja con: vagrant box add laravel/homestead
+
+Instalamos Homestead: composer global require "laravel/homestead=~2.0" posterirmente homestead init y finalmente homestead edit.
+
+Colocamos nuestra llave SSH: ssh-keygen -t rsa -C "you@homestead"
+
+Configuramos el servidor NGINX: 
+sites:
+    - map: homestead.app
+      to: /home/vagrant/Code/Laravel/public
+      hhvm: true
+
+Editamos nuestro archivo hosts: 192.168.10.10  homestead.app
+
+Accedemos a la aplicacion en: http://homestead.app
+
 
 ### Funcionamiento del API (Cursos)
 
@@ -185,6 +239,18 @@ Elimación del curso con el identificador :id
 curl -X DELETE "http://104.236.101.166/api/v1/cursos/1"
 ```
 
-### License
+### VIDEO
+
+Link a Google Drive: https://drive.google.com/folderview?id=0Bz71CcNvpZFDSy01Szh5cFZmcTg
+
+### MANUAL DEL USUARIO
+
+Link a Google Drive: https://docs.google.com/document/d/1u3Hx6l-R1qcORsIkBYdwcw2dXP05IqPTSkGPwJ4ZUf4
+
+### DOCUMENTOS DE APOYO
+
+Link a Google Drive: https://drive.google.com/open?id=0Bz71CcNvpZFDWGRrbldUVjdINUU
+
+### LICENSE
 
 Temoa is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
