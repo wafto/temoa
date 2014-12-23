@@ -333,8 +333,8 @@
 
 					<div class="chart"></div>
 
-					<script src="http://d3js.org/d3.v3.min.js"></script>
-					<script>
+					<!--<script src="http://d3js.org/d3.v3.min.js"></script>-->
+					<!--<script>
 
 						var data = [4, 8, 15, 16, 23, 42];
 
@@ -349,7 +349,7 @@
 						.style("width", function(d) { return x(d) + "px"; })
 						.text(function(d) { return d; });
 
-					</script>
+					</script>-->
 
 				</div>
 
@@ -382,7 +382,7 @@
 				</div>
 
 				<div class="col-md-6">
-					<form class="search-form" action="" id="buscador-interno">
+					<form id="search-form" class="search-form" action="" id="buscador-interno">
 						<p class="wrapper">
 							<input class="icon" type="text" placeholder="Buscar de nuevo..." name="search" class="search-text"/>
 						</p>
@@ -436,15 +436,6 @@
 
 						<tbody id="courses">
 
-							<tr>
-								<td><span id="titulo-curso">Curso de administración de servidores con stack LAMP</span> <br><span id="nombre-socio">Centro ADM</span></td>
-								<td>Servidores</td>
-								<td>22 de enero, 2015</td>
-								<td>
-									<button id="agregar-favoritos" class="btn btn-default btn-sm" type="button" data-toggle="modal" data-target="#temario"><em class="glyphicon glyphicon-star"></em> Agregar</button>
-								</td>
-							</tr>
-
 						</tbody>
 
 					</table>
@@ -485,11 +476,11 @@
 
 <template id="courseTemplate">
 	<tr>
-		<td><span id="titulo-curso">@{{nombre}}</span> <br><span id="nombre-socio">Centro ADM</span></td>
-		<td>Servidores</td>
+		<td><span id="titulo-curso">@{{nombre}}</span> <br><span id="nombre-socio">@{{socioTecnologico.nombre}}</span></td>
+		<td>@{{categoria}}</td>
 		<td>22 de enero, 2015</td>
 		<td>
-			<button id="agregar-favoritos" class="btn btn-default btn-sm" type="button" data-toggle="modal" data-target="#temario"><em class="glyphicon glyphicon-star"></em> Agregar</button>
+			<button id="agregar-favoritos" class="btn btn-default btn-sm fav-button" type="button" data-toggle="modal" data-target="#temario" data-id="@{{id}}"><em class="glyphicon glyphicon-star"></em> Agregar</button>
 		</td>
 	</tr>
 </template>
@@ -498,5 +489,7 @@
 @section('scripts-bottom')
 	<script src="/js/carousels.js"></script>
 	<script src="/js/mustache.min.js"></script>
+	<script src="/js/store.min.js"></script>
 	<script src="/js/search.js"></script>
+	<script src="/js/happy.js"></script>
 @stop
