@@ -238,6 +238,9 @@ Elimación del curso con el identificador :id
 ```
 curl -X DELETE "http://104.236.101.166/api/v1/cursos/1"
 ```
+### SOLUCIÓN AL RETO
+
+Link a Google Drive: https://docs.google.com/document/d/1sErD2-azqjkZbI1GZ-u5t9ACbRYR5-M2gHOsTxtFjfY/edit
 
 ### VIDEO
 
