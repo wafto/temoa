@@ -8,7 +8,7 @@ Temoa es mas que un simple gestor de cursos con un buscador, es una plataforma i
 
 ### EL PROTOTIPO
 
-Presentamos un prototipo de nuestra aplicación web en la que desarrollamos dos tanto frontend como backend, en el caso del frontend, diseñamos una interfaz grafica estética y funcional, pensando en la facilidad de uso y agilidad para realizar las interacciones, todo ello utilizando HTML5, CSS3 y JS, en el caso del backend, utilizamos un poderoso framework de PHP llamado Laravel, con el cual se desarrollo una API REST cuya documentación se encuentra en este mismo documento, asi mismo desarrollamos un dashboard para la administración de dependencias, funcionarios, socios y ofertas de capacitación, todo esto, reflejo del modelo de base de datos MySQL que generamos y de la cual, gracias a la API podemos comunicarnos bidireccionalmente. 
+Presentamos un prototipo de nuestra aplicación web en la que desarrollamos dos tanto frontend como backend, en el caso del frontend, diseñamos una interfaz grafica estética y funcional, pensando en la facilidad de uso y agilidad para realizar las interacciones, todo ello utilizando HTML5, CSS3 y JS, en el caso del backend, utilizamos un poderoso framework de PHP llamado Laravel, con el cual se desarrollo una API REST cuya documentación se encuentra en este mismo documento, asi mismo desarrollamos un dashboard para la administración de dependencias, funcionarios, socios y ofertas de capacitación, todo esto, reflejo del modelo de base de datos MySQL que generamos y de la cual, gracias a la API podemos comunicarnos bidireccionalmente.
 Presentamos el caso de uso de funcionario publico realizando una búsqueda de capacitación en su hub, desde el login hasta su solicitud de inscripción.
 
 ### PROPUESTA DE VALOR
@@ -17,7 +17,7 @@ Presentamos el caso de uso de funcionario publico realizando una búsqueda de ca
 • Sistema de búsqueda concreto y de alto desempeño ya que nos devuelve objetos JSON.
 • Diseño de interfaz claro, estético y funcional, facilitando su uso y adopción.
 • Lograr la solicitud de inscripción a una capacitación en cuatro interacciones mediante búsqueda o dos interacciones mediante listado de oferta académica.
-• Fácil administración vía dashboard para operaciones CRUD sobre funcionarios, dependencias, socios y oferta académica.  
+• Fácil administración vía dashboard para operaciones CRUD sobre funcionarios, dependencias, socios y oferta académica.
 
 ### ESPECIFICACIONES TÉCNICAS
 
@@ -45,16 +45,19 @@ Instalamos Homestead: composer global require "laravel/homestead=~2.0" posterirm
 
 Colocamos nuestra llave SSH: ssh-keygen -t rsa -C "you@homestead"
 
-Configuramos el servidor NGINX: 
+Configuramos el servidor NGINX:
 sites:
-    - map: homestead.app
+    - map: temoa.app
       to: /home/vagrant/Code/Laravel/public
       hhvm: true
 
-Editamos nuestro archivo hosts: 192.168.10.10  homestead.app
+Editamos nuestro archivo hosts: 192.168.10.10  temoa.app
 
-Accedemos a la aplicacion en: http://homestead.app
+Creamos un archivo de configuraciones en la raiz del proyecto con el nombre de .env.local.php y copiamos lo que se tiene en .env.php.dist y modificamos los datos para la base de datos, keys, entre otros.
 
+Posteriormente Corremos migraciones con ```php artisan migrate``` pero esto dentro de la máquina virtual, para ello podemos hacer un ```homestead ssh``` y dentro de la VM podemos ejecutar los comandos anteriores.
+
+Accedemos a la aplicacion en: http://temoa.app
 
 ### Funcionamiento del API (Cursos)
 

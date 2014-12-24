@@ -47,4 +47,11 @@ class V1Controller extends BaseController {
         ]);
     }
 
+    public function messageResponse($message, $error = false)
+    {
+        return Response::json([
+            'error' => $error,
+            'message' => $message,
+        ]);
+    }
 }
