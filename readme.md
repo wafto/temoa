@@ -253,19 +253,19 @@ curl -X DELETE "http://104.236.101.166/api/v1/cursos/1"
 ```
 ### SOLUCIÓN AL RETO
 
-Link a Google Drive: https://docs.google.com/document/d/1sErD2-azqjkZbI1GZ-u5t9ACbRYR5-M2gHOsTxtFjfY/edit
+[Link a Google Drive](https://docs.google.com/document/d/1sErD2-azqjkZbI1GZ-u5t9ACbRYR5-M2gHOsTxtFjfY/edit)
 
 ### VIDEO
 
-Link a Google Drive: https://drive.google.com/folderview?id=0Bz71CcNvpZFDSy01Szh5cFZmcTg
+[Link a Google Drive](https://drive.google.com/folderview?id=0Bz71CcNvpZFDSy01Szh5cFZmcTg)
 
 ### MANUAL DEL USUARIO
 
-Link a Google Drive: https://drive.google.com/open?id=0Bz71CcNvpZFDWFRjTlJsVDh6ZkE
+[Link a Google Drive](https://drive.google.com/open?id=0Bz71CcNvpZFDWFRjTlJsVDh6ZkE)
 
 ### DOCUMENTOS DE APOYO
 
-Link a Google Drive: https://drive.google.com/open?id=0Bz71CcNvpZFDWGRrbldUVjdINUU
+[Link a Google Drive](https://drive.google.com/open?id=0Bz71CcNvpZFDWGRrbldUVjdINUU)
 
 ### LICENSE
 
