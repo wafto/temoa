@@ -59,8 +59,8 @@
 							<li><a href="/actualidad">Actualidad</a></li>
 							<li><a href="/conocenos">Conócenos</a></li>
 							<li><a href="/contactanos">Contáctanos</a></li>
-							<li><a href="/acceder">Acceder</a></li>
-							<li><a href="/registrarse">Registrarse</a></li>
+							<li><a href="/profile">Perfil</a></li>
+							<li><a href="/logout">Salir</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
