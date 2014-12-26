@@ -489,7 +489,10 @@
 @section('scripts-bottom')
 	<script src="/js/carousels.js"></script>
 	<script src="/js/mustache.min.js"></script>
-	<script src="/js/store.min.js"></script>
 	<script src="/js/search.js"></script>
+@stop
+
+@section('scripts-top')
+	<script src="/js/store.min.js"></script>
 	<script src="/js/happy.js"></script>
 @stop
