@@ -63,8 +63,11 @@ sites:
 
 Editamos nuestro archivo hosts: >192.168.10.10  homestead.app
 
-Accedemos a la aplicacion en: >http://homestead.app
+Copiamos la config de .env.php.dist a un nuevo archivo .env.local.php ahí añadimos los datos de la db
 
+Para corer migraciones entramos a homestead via ssh y dentro del proyecto corremos "php artisan migrate —seed" el —seed va a poner datos falsos para trabajar con ellos.
+
+Accedemos a la aplicacion en: >http://homestead.app
 
 ### Funcionamiento del API (Cursos)
 
