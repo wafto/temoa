@@ -447,7 +447,7 @@
 
 					<div class="btn-group btn-group-md pull-right">
 						<button id="agregar-favoritos" class="btn btn-default" type="button" data-toggle="modal" data-target="#temario"><em class="glyphicon glyphicon-filter"></em> Limpiar filtros</button>
-						<button id="agregar-favoritos" class="btn btn-default pull-right" type="button" data-toggle="modal" data-target="#temario"><em class="glyphicon glyphicon-chevron-right"></em> Ver cursos agregados</button>
+						<button id="verPerfil" class="btn btn-default pull-right" type="button" data-toggle="modal" data-target="#temario"><em class="glyphicon glyphicon-chevron-right"></em> Ver cursos agregados</button>
 					</div>
 
 					
