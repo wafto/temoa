@@ -13,11 +13,11 @@ Presentamos el caso de uso de funcionario publico realizando una búsqueda de ca
 
 ### PROPUESTA DE VALOR
 
-• Consumo y  de datos via API REST (No se hacen queries directamente a la base de datos desde la capa de presentación).
-• Sistema de búsqueda concreto y de alto desempeño ya que nos devuelve objetos JSON.
-• Diseño de interfaz claro, estético y funcional, facilitando su uso y adopción.
-• Lograr la solicitud de inscripción a una capacitación en cuatro interacciones mediante búsqueda o dos interacciones mediante listado de oferta académica.
-• Fácil administración vía dashboard para operaciones CRUD sobre funcionarios, dependencias, socios y oferta académica.
+* Consumo y  de datos via API REST (No se hacen queries directamente a la base de datos desde la capa de presentación).
+* Sistema de búsqueda concreto y de alto desempeño ya que nos devuelve objetos JSON.
+* Diseño de interfaz claro, estético y funcional, facilitando su uso y adopción.
+* Lograr la solicitud de inscripción a una capacitación en cuatro interacciones mediante búsqueda o dos interacciones mediante listado de oferta académica.
+* Fácil administración vía dashboard para operaciones CRUD sobre funcionarios, dependencias, socios y oferta académica.
 
 ### ESPECIFICACIONES TÉCNICAS
 
@@ -25,39 +25,49 @@ Aplicación web desarrollada sobre Laravel 5 (PHP-MySQL), consumo de datos via A
 
 Al ser un prototipo nos enfocamos en presentar de forma estética y funcional el consumo de datos via APIen el frontend.
 
-### REQUISITOS (En desarrollo)
+### REQUISITOS
+
+* Debian o Ubuntu
+* 512 de RAM
+* 20Gb de SSD
+* PHP 5.5 en adelante con Mcrypt y GD
+* MySQL 5 en adelante
+* Node.js y NPM
+* Gulp
+* Bower
+* Composer
 
 
 ### INSTALACIÓN
 
 Para instalar TEMOA en un entorno local vamos a usar una máquina virtual y necesitamos descargar e instalar:
 
-http://virtualbox.org
-http://vagrantup.com
+* http://virtualbox.org
+* http://vagrantup.com
 
 Una vez contando con Virtual Box y Vagrant, vamos a utilizar Homestead de Laravel para clonar una Virtual Box con todo lo necesario para simular el entorno de de producción.
 
 Trabajaremos en linea de comando o terminal.
 
-Agregamos la caja con: vagrant box add laravel/homestead
+Agregamos la caja con: >vagrant box add laravel/homestead
 
-Instalamos Homestead: composer global require "laravel/homestead=~2.0" posterirmente homestead init y finalmente homestead edit.
+Instalamos Homestead: >composer global require "laravel/homestead=~2.0" posterirmente homestead init y finalmente homestead edit.
 
-Colocamos nuestra llave SSH: ssh-keygen -t rsa -C "you@homestead"
+Colocamos nuestra llave SSH: >ssh-keygen -t rsa -C "you@homestead"
 
 Configuramos el servidor NGINX:
 sites:
-    - map: temoa.app
-      to: /home/vagrant/Code/Laravel/public
-      hhvm: true
+    * map: homestead.app
+    * to: /home/vagrant/Code/Laravel/public
+    * hhvm: true
 
-Editamos nuestro archivo hosts: 192.168.10.10  temoa.app
+Editamos nuestro archivo hosts: >192.168.10.10  homestead.app
 
-Creamos un archivo de configuraciones en la raiz del proyecto con el nombre de .env.local.php y copiamos lo que se tiene en .env.php.dist y modificamos los datos para la base de datos, keys, entre otros.
+Copiamos la config de .env.php.dist a un nuevo archivo .env.local.php ahí añadimos los datos de la db
 
-Posteriormente Corremos migraciones con ```php artisan migrate``` pero esto dentro de la máquina virtual, para ello podemos hacer un ```homestead ssh``` y dentro de la VM podemos ejecutar los comandos anteriores.
+Para corer migraciones entramos a homestead via ssh y dentro del proyecto corremos "php artisan migrate —seed" el —seed va a poner datos falsos para trabajar con ellos.
 
-Accedemos a la aplicacion en: http://temoa.app
+Accedemos a la aplicacion en: >http://homestead.app
 
 ### Funcionamiento del API (Cursos)
 
@@ -243,19 +253,19 @@ curl -X DELETE "http://104.236.101.166/api/v1/cursos/1"
 ```
 ### SOLUCIÓN AL RETO
 
-Link a Google Drive: https://docs.google.com/document/d/1sErD2-azqjkZbI1GZ-u5t9ACbRYR5-M2gHOsTxtFjfY/edit
+[Link a Google Drive](https://docs.google.com/document/d/1sErD2-azqjkZbI1GZ-u5t9ACbRYR5-M2gHOsTxtFjfY/edit)
 
 ### VIDEO
 
-Link a Google Drive: https://drive.google.com/folderview?id=0Bz71CcNvpZFDSy01Szh5cFZmcTg
+[Link a Google Drive](https://drive.google.com/folderview?id=0Bz71CcNvpZFDSy01Szh5cFZmcTg)
 
 ### MANUAL DEL USUARIO
 
-Link a Google Drive: https://drive.google.com/open?id=0Bz71CcNvpZFDWFRjTlJsVDh6ZkE
+[Link a Google Drive](https://drive.google.com/open?id=0Bz71CcNvpZFDWFRjTlJsVDh6ZkE)
 
 ### DOCUMENTOS DE APOYO
 
-Link a Google Drive: https://drive.google.com/open?id=0Bz71CcNvpZFDWGRrbldUVjdINUU
+[Link a Google Drive](https://drive.google.com/open?id=0Bz71CcNvpZFDWGRrbldUVjdINUU)
 
 ### LICENSE
 
