@@ -99,6 +99,9 @@ gulp.task('custom', function () {
     gulp.src(directory.assets + '/custom/js/happy2.js')
         .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
         .pipe(gulp.dest(directory.target.js));
+    gulp.src(directory.assets + '/custom/js/profile.js')
+        .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
+        .pipe(gulp.dest(directory.target.js));
 });
 
 gulp.task('default', ['jquery', 'bootstrap', 'bootstrap:dtpicker', 'tagmanager', 'custom']);
