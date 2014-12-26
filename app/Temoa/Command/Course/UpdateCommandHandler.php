@@ -42,6 +42,7 @@ class UpdateCommandHandler implements CommandHandler {
         $instance->category_id = $category->id;
         $instance->partner_id = $command->partner_id;
         $instance->description = $command->description;
+        $instance->agenda = $command->agenda;
         $instance->duration = $command->duration;
         $instance->format = $command->format;
         $instance->visible = !empty($command->visible) && intval($command->visible) == '1';

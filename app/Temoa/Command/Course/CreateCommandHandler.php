@@ -41,6 +41,7 @@ class CreateCommandHandler implements CommandHandler {
         $this->modelCourse->category_id = $category->id;
         $this->modelCourse->partner_id = $command->partner_id;
         $this->modelCourse->description = $command->description;
+        $this->modelCourse->agenda = $command->agenda;
         $this->modelCourse->duration = $command->duration;
         $this->modelCourse->format = $command->format;
         $this->modelCourse->visible = !empty($command->visible) && intval($command->visible) == '1';
