@@ -237,6 +237,10 @@
 
 @section('scripts-bottom')
 	<script src="/js/mustache.min.js"></script>
+  <script src="/js/profile.js"></script>
+@stop
+
+@section('scripts-top')
 	<script src="/js/store.min.js"></script>
-	<script src="/js/profile.js"></script>
+  <script src="/js/happy.js"></script>
 @stop
