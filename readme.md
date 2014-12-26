@@ -13,11 +13,11 @@ Presentamos el caso de uso de funcionario publico realizando una búsqueda de ca
 
 ### PROPUESTA DE VALOR
 
-• Consumo y  de datos via API REST (No se hacen queries directamente a la base de datos desde la capa de presentación).
-• Sistema de búsqueda concreto y de alto desempeño ya que nos devuelve objetos JSON.
-• Diseño de interfaz claro, estético y funcional, facilitando su uso y adopción.
-• Lograr la solicitud de inscripción a una capacitación en cuatro interacciones mediante búsqueda o dos interacciones mediante listado de oferta académica.
-• Fácil administración vía dashboard para operaciones CRUD sobre funcionarios, dependencias, socios y oferta académica.  
+* Consumo y  de datos via API REST (No se hacen queries directamente a la base de datos desde la capa de presentación).
+* Sistema de búsqueda concreto y de alto desempeño ya que nos devuelve objetos JSON.
+* Diseño de interfaz claro, estético y funcional, facilitando su uso y adopción.
+* Lograr la solicitud de inscripción a una capacitación en cuatro interacciones mediante búsqueda o dos interacciones mediante listado de oferta académica.
+* Fácil administración vía dashboard para operaciones CRUD sobre funcionarios, dependencias, socios y oferta académica.  
 
 ### ESPECIFICACIONES TÉCNICAS
 
@@ -25,35 +25,45 @@ Aplicación web desarrollada sobre Laravel 5 (PHP-MySQL), consumo de datos via A
 
 Al ser un prototipo nos enfocamos en presentar de forma estética y funcional el consumo de datos via APIen el frontend.
 
-### REQUISITOS (En desarrollo)
+### REQUISITOS
+
+* Debian o Ubuntu
+* 512 de RAM
+* 20Gb de SSD
+* PHP 5.5 en adelante con Mcrypt y GD
+* MySQL 5 en adelante
+* Node.js y NPM
+* Gulp
+* Bower
+* Composer
 
 
 ### INSTALACIÓN
 
 Para instalar TEMOA en un entorno local vamos a usar una máquina virtual y necesitamos descargar e instalar:
 
-http://virtualbox.org
-http://vagrantup.com
+* http://virtualbox.org
+* http://vagrantup.com
 
 Una vez contando con Virtual Box y Vagrant, vamos a utilizar Homestead de Laravel para clonar una Virtual Box con todo lo necesario para simular el entorno de de producción.
 
 Trabajaremos en linea de comando o terminal.
 
-Agregamos la caja con: vagrant box add laravel/homestead
+Agregamos la caja con: >vagrant box add laravel/homestead
 
-Instalamos Homestead: composer global require "laravel/homestead=~2.0" posterirmente homestead init y finalmente homestead edit.
+Instalamos Homestead: >composer global require "laravel/homestead=~2.0" posterirmente homestead init y finalmente homestead edit.
 
-Colocamos nuestra llave SSH: ssh-keygen -t rsa -C "you@homestead"
+Colocamos nuestra llave SSH: >ssh-keygen -t rsa -C "you@homestead"
 
 Configuramos el servidor NGINX: 
 sites:
-    - map: homestead.app
-      to: /home/vagrant/Code/Laravel/public
-      hhvm: true
+    * map: homestead.app
+    * to: /home/vagrant/Code/Laravel/public
+    * hhvm: true
 
-Editamos nuestro archivo hosts: 192.168.10.10  homestead.app
+Editamos nuestro archivo hosts: >192.168.10.10  homestead.app
 
-Accedemos a la aplicacion en: http://homestead.app
+Accedemos a la aplicacion en: >http://homestead.app
 
 
 ### Funcionamiento del API (Cursos)
