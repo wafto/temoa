@@ -8,9 +8,6 @@
 		capArray = user.capacitaciones;
 		idSearch = "&search[id][in]="
 
-	if(user.logedin == false){
-		window.location = '/login';
-	}
 
 	$('#profileContainer').html(Mustache.render(userProfileTemplate, user));
 
@@ -70,7 +67,9 @@
 			results = data.items;
 
 			$.each(results, function(i, course){
+
 				$('#favTable').append(Mustache.render(favoritosTemplate, course));
+
 			});
 			
 		});
@@ -87,16 +86,17 @@
 			results = data.items;
 
 			$.each(results, function(i, course){
+
 				$('#capTable').append(Mustache.render(capacitacionTemplate, course));
 
 				var $button = $('button[data-id=' + course.id + ']');
 
-				console.log($button);
 
-
-				if(user.capacitaciones.indexOf(course.id) != -1){
+				if(user.capacitaciones.indexOf(parseInt(course.id)) != -1){
 					$button.remove();
 				}
+
+
 			});
 			
 		});

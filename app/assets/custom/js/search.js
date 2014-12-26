@@ -44,10 +44,14 @@
 
 				var $button = $('button[data-id=' + course.id + ']');
 
-
-				if(user.favoritos.indexOf(course.id) != -1){
+				if(user.favoritos.indexOf(parseInt(course.id)) != -1){
 					$button.remove();
 				}
+
+				if(user.capacitaciones.indexOf(parseInt(course.id)) != -1){
+					$button.remove();
+				}
+
 
 			});
 
@@ -83,7 +87,20 @@
 				var searchResults = data.items;
 
 				$.each(searchResults, function(i, course){
+
 					$('#courses').append(Mustache.render(courseTemplate, course));
+
+					var $button = $('button[data-id=' + course.id + ']');
+
+					if(user.favoritos.indexOf(parseInt(course.id)) != -1){
+						$button.remove();
+					}
+
+					if(user.capacitaciones.indexOf(parseInt(course.id)) != -1){
+						$button.remove();
+					}
+
+
 				});
 
 				if(totalPages <= currentPage){
@@ -96,6 +113,22 @@
 
 
 
+	});
+
+	$("body").on('click', '.fav-button', function(){
+
+		$this = $(this);
+
+		user.favoritos.push(parseInt($this.data('id')));
+
+		store.set('user', user);
+
+		$this.fadeOut();
+
+	});
+
+	$("body").on('click', '#verPerfil', function(){
+		window.location = '/profile';
 	});
 
 

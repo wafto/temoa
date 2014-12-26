@@ -27,16 +27,4 @@
 
 	}
 
-	$("body").on('click', '.fav-button', function(){
-
-		$this = $(this);
-
-		user.favoritos.push(parseInt($this.data('id')));
-
-		store.set('user', user);
-
-		$this.fadeOut();
-
-	});
-
 })();

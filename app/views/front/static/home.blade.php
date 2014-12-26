@@ -447,7 +447,7 @@
 
 					<div class="btn-group btn-group-md pull-right">
 						<button id="agregar-favoritos" class="btn btn-default" type="button" data-toggle="modal" data-target="#temario"><em class="glyphicon glyphicon-filter"></em> Limpiar filtros</button>
-						<button id="agregar-favoritos" class="btn btn-default pull-right" type="button" data-toggle="modal" data-target="#temario"><em class="glyphicon glyphicon-chevron-right"></em> Ver cursos agregados</button>
+						<button id="verPerfil" class="btn btn-default pull-right" type="button" data-toggle="modal" data-target="#temario"><em class="glyphicon glyphicon-chevron-right"></em> Ver cursos agregados</button>
 					</div>
 
 					
@@ -489,7 +489,10 @@
 @section('scripts-bottom')
 	<script src="/js/carousels.js"></script>
 	<script src="/js/mustache.min.js"></script>
-	<script src="/js/store.min.js"></script>
 	<script src="/js/search.js"></script>
+@stop
+
+@section('scripts-top')
+	<script src="/js/store.min.js"></script>
 	<script src="/js/happy.js"></script>
 @stop
