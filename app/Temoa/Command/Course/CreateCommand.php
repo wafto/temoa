@@ -68,6 +68,11 @@ class CreateCommand {
     public $tags;
 
     /**
+     * @var string
+     */
+    public $agenda;
+
+    /**
      * @param string  internal_number
      * @param string  external_number
      * @param string  name
@@ -79,7 +84,7 @@ class CreateCommand {
      * @param boolean visible
      * @param boolean cancelled
      */
-    public function __construct($internal_number, $external_number, $name, $category, $partner_id, $description, $duration, $format, $visible, $cancelled, $image, $start_at, $tags)
+    public function __construct($internal_number, $external_number, $name, $category, $partner_id, $description, $duration, $format, $visible, $cancelled, $image, $start_at, $tags, $agenda)
     {
         $this->internal_number = $internal_number;
         $this->external_number = $external_number;
@@ -94,6 +99,7 @@ class CreateCommand {
         $this->image = $image;
         $this->start_at = $start_at;
         $this->tags = $tags;
+        $this->agenda = $agenda;
     }
 
 }

@@ -32,10 +32,10 @@ Route::group(['prefix' => 'admin', 'before' => ['auth.admin', 'csrf.forms']], fu
 
 });
 
-Route::group(['prefix' => 'api/v1'], function()
+Route::group(['prefix' => 'api/v1', 'before' => ['auth.api']], function()
 {
 
-    Route::resource('cursos', 'Api\V1\CoursesController', ['only' => ['index', 'show', 'create', 'store', 'destroy']]);
+    Route::resource('cursos', 'Api\V1\CoursesController', ['only' => ['index', 'show', 'store', 'update', 'destroy']]);
 
 });
 
@@ -54,7 +54,7 @@ Route::get('aliados', function(){
     return View::make('front.static.aliados');
 });
 
-// Vista Conócenos 
+// Vista Conócenos
 Route::get('conocenos', function(){
     return View::make('front.static.conocenos');
 });

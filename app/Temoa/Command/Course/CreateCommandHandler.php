@@ -27,10 +27,13 @@ class CreateCommandHandler implements CommandHandler {
     public function handle($command)
     {
         $tags = [];
-        $extension = $command->image->getClientOriginalExtension();
-        $path = sprintf('/uploads/%s', strtolower(str_random(8)));
-        $destinationPath = sprintf('%s%s', public_path(), $path);
-        $command->image->move($destinationPath, $command->image->getClientOriginalName());
+        if ($command->image) {
+            $extension = $command->image->getClientOriginalExtension();
+            $path = sprintf('/uploads/%s', strtolower(str_random(8)));
+            $destinationPath = sprintf('%s%s', public_path(), $path);
+            $command->image->move($destinationPath, $command->image->getClientOriginalName());
+            $this->modelCourse->image = sprintf('%s%s/%s', Config::get('app.url'), $path, $command->image->getClientOriginalName());
+        }
         $category = $this->modelCategory->where('name', $command->category)->first();
         $this->modelCourse->internal_number = $command->internal_number;
         $this->modelCourse->external_number = $command->external_number;
@@ -38,11 +41,11 @@ class CreateCommandHandler implements CommandHandler {
         $this->modelCourse->category_id = $category->id;
         $this->modelCourse->partner_id = $command->partner_id;
         $this->modelCourse->description = $command->description;
+        $this->modelCourse->agenda = $command->agenda;
         $this->modelCourse->duration = $command->duration;
         $this->modelCourse->format = $command->format;
         $this->modelCourse->visible = !empty($command->visible) && intval($command->visible) == '1';
         $this->modelCourse->cancelled = !empty($command->cancelled) && intval($command->cancelled) == '1';
-        $this->modelCourse->image = sprintf('%s%s/%s', Config::get('app.url'), $path, $command->image->getClientOriginalName());
         $this->modelCourse->start_at = new DateTime($command->start_at);
         $this->modelCourse->save();
         foreach ($command->tags as $tagName) {

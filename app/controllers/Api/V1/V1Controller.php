@@ -39,4 +39,19 @@ class V1Controller extends BaseController {
         ]);
     }
 
+    public function validationFail($message)
+    {
+        return Response::json([
+            'error' => true,
+            'message' => $message,
+        ]);
+    }
+
+    public function messageResponse($message, $error = false)
+    {
+        return Response::json([
+            'error' => $error,
+            'message' => $message,
+        ]);
+    }
 }
