@@ -333,8 +333,8 @@
 
 					<div class="chart"></div>
 
-					<!--<script src="http://d3js.org/d3.v3.min.js"></script>-->
-					<!--<script>
+					<script src="http://d3js.org/d3.v3.min.js"></script>
+					<script>
 
 						var data = [4, 8, 15, 16, 23, 42];
 
@@ -349,7 +349,7 @@
 						.style("width", function(d) { return x(d) + "px"; })
 						.text(function(d) { return d; });
 
-					</script>-->
+					</script>
 
 				</div>
 
