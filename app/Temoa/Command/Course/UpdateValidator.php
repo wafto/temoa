@@ -18,6 +18,5 @@ class UpdateValidator extends FormValidator {
         'duration' => 'required|numeric',
         'format' => 'required|in:presencial,línea',
         'start_at' => 'required|date',
-        'image' => 'image'
     ];
 }

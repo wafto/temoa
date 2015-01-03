@@ -11,6 +11,7 @@ var gulp = require('gulp'),
     minifyCSS = require('gulp-minify-css');
 
 var directory = {
+    assets : 'app/assets',
     less: 'app/assets/less',
     bower: jf.readFileSync(__dirname + '/.bowerrc').directory,
     target: {
@@ -70,4 +71,37 @@ gulp.task('tagmanager', function () {
         .pipe(gulp.dest(directory.target.js));
 });
 
-gulp.task('default', ['jquery', 'bootstrap', 'bootstrap:dtpicker', 'tagmanager']);
+gulp.task('custom', function () {
+    gulp.src(directory.assets + '/custom/css/carousel.css')
+        .pipe(minifyCSS({keepBreaks:true}))
+        .pipe(gulp.dest(directory.target.css));
+    gulp.src(directory.assets + '/custom/css/custom.css')
+        .pipe(minifyCSS({keepBreaks:true}))
+        .pipe(gulp.dest(directory.target.css));
+    gulp.src(directory.assets + '/custom/js/carousels.js')
+        .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
+        .pipe(gulp.dest(directory.target.js));
+    gulp.src(directory.assets + '/custom/js/custom.js')
+        .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
+        .pipe(gulp.dest(directory.target.js));
+    gulp.src(directory.assets + '/custom/js/mustache.min.js')
+        .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
+        .pipe(gulp.dest(directory.target.js));
+    gulp.src(directory.assets + '/custom/js/search.js')
+        .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
+        .pipe(gulp.dest(directory.target.js));
+    gulp.src(directory.assets + '/custom/js/store.min.js')
+        .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
+        .pipe(gulp.dest(directory.target.js));
+    gulp.src(directory.assets + '/custom/js/happy.js')
+        .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
+        .pipe(gulp.dest(directory.target.js));
+    gulp.src(directory.assets + '/custom/js/happy2.js')
+        .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
+        .pipe(gulp.dest(directory.target.js));
+    gulp.src(directory.assets + '/custom/js/profile.js')
+        .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
+        .pipe(gulp.dest(directory.target.js));
+});
+
+gulp.task('default', ['jquery', 'bootstrap', 'bootstrap:dtpicker', 'tagmanager', 'custom']);

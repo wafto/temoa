@@ -91,6 +91,16 @@
         </div>
 
         <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              {{ Form::label('agenda', 'Temario') }}
+              {{ Form::textarea('agenda', $model ? $model->agenda : '', ['class' => 'form-control']) }}
+              {{ $errors->first('agenda', '<div class="text-danger">:message</div>') }}
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
           <div class="col-xs-6">
             <div class="form-group">
               {{ Form::label('duration', 'Duración') }}
