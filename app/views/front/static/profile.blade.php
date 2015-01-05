@@ -241,6 +241,8 @@
 @stop
 
 @section('scripts-top')
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script src="/js/store.min.js"></script>
   <script src="/js/happy.js"></script>
+    <script src="/js/custom.js"></script>
 @stop
