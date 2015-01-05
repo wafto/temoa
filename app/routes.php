@@ -83,3 +83,8 @@ Route::get('profile', function(){
 Route::get('continuar', function(){
     return View::make('front.static.confirmation');
 });
+
+// Vista actualidad
+Route::get('actualidad', function(){
+    return View::make('front.static.confirmation');
+});
