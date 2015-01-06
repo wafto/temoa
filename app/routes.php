@@ -86,5 +86,10 @@ Route::get('continuar', function(){
 
 // Vista actualidad
 Route::get('actualidad', function(){
-    return View::make('front.static.confirmation');
+    return View::make('front.static.actualidad');
+});
+
+// Vista de detalle curso
+Route::get('curso', function(){
+    return View::make('front.static.detalle-curso');
 });
