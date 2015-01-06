@@ -50,7 +50,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#"> <img src="img/temoa.png" alt=""> </a>
+						<a class="navbar-brand" href="/"> <img src="img/temoa.png" alt=""> </a>
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav navbar-right">
@@ -131,42 +131,37 @@
 	<!-- Bootstrap core JavaScript
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<!--<script src="/js/bootstrap.min.js"></script>-->
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
 
-	<!-- Scripts Bottom -->
-	@yield('scripts-bottom')
-	<!-- Scripts Bottom -->
+
+        <script>
+$(document).ready(function(){
+    $("#myModal").modal("toggle");
+})
+        </script>
 
 	<!-- Modals -->
 
 	<!-- Login -->
-	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">TEMOA Login</h4>
-				</div>
-
-				<div class="modal-body">
-					...
-				</div>
-
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-primary" id="loginSubmit">Entrar</button>
-				</div>
-
-			</div>
-		</div>
-	</div>
-	<!-- Login -->
-
-
-	<!-- Modals -->
-
+    @yield('scripts-bottom')
 	</body>
 </html>
