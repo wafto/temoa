@@ -93,3 +93,9 @@ Route::get('actualidad', function(){
 Route::get('curso', function(){
     return View::make('front.static.detalle-curso');
 });
+
+
+Route::get('oferta-academica', function(){
+    return View::make('front.static.oferta-academica');
+});
+
