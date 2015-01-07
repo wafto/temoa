@@ -1,3 +1,7 @@
+@extends('front.base')
+
+@section('content')
+
 <div class="container">
 <section id="oferta-contenido">
   <div class="row clearfix">
@@ -35,9 +39,9 @@
 
    </section>
       <div class="btn-group btn-group-md">
-         <button id="ver-temario" class="btn btn-default" type="button" data-toggle="modal" data-target="#temario"><em class="glyphicon glyphicon-info-sign"></em> Leer Temario</button>
-         <button id="ver-perfil" class="btn btn-default" type="button"><em class="glyphicon glyphicon-eye-open"></em> Ver Perfil de Socio</button>
-         <button id="solicitar-inscripcion" class="btn btn-default" type="button"><em class="glyphicon glyphicon-ok"></em> Solicitar INSCRIPCIÓN</button>
+         <button id="ver-temario" class="btn btn-default" type="button" data-toggle="modal" data-target="#temario"><i class="fa fa-info-circle"></i> Leer Temario</button>
+         <button id="ver-perfil" class="btn btn-default" type="button"><i class="fa fa-eye"></i> Ver Perfil de Socio</button>
+         <button id="solicitar-inscripcion" class="btn btn-default" type="button"><i class="fa fa-check-square"></i> Solicitar INSCRIPCIÓN</button>
    
       </div>
       
@@ -151,3 +155,5 @@ El Portal para desarrolladores de Apple | Certificado de desarrollo | El organiz
 
 </section>
 </div>
+
+@stop
