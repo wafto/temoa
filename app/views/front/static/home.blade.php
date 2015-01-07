@@ -241,6 +241,23 @@
 
 											</div> 
 										</div> 
+
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+											<div class="form-group">
+
+												<label for="status" class="col-sm-5 control-label">Area de Intereses</label>
+												<div class="col-sm-7">
+													<select class="form-control" id="status" name="status">
+                                                        <option value="1">Desarrollo y Sistemas</option>
+                                                        <option value="2">Infraestructura</option>
+                                                        <option value="3">Telecomunicaciones</option>
+                                                        <option value="4">Soporte</option>
+                                                        <option value="5">Seguridad</option>
+													</select>
+												</div>
+
+											</div> 
+										</div>
 										<!-- CAPTCHA -->
 
 									</div>
@@ -378,7 +395,7 @@
 			<div class="row">
 
 				<div class="col-md-6">
-					<h4>Resultados de tu búsqueda: <span id="resultado-busqueda">Administrador de servidores</span></h4>
+					<h4>Resultados de tu búsqueda: <span id="resultado-busqueda">@{{busqueda}}</span></h4>
 				</div>
 
 				<div class="col-md-6">
@@ -490,6 +507,7 @@
 	<script src="/js/carousels.js"></script>
 	<script src="/js/mustache.min.js"></script>
 	<script src="/js/search.js"></script>
+    <script src="mamada.js"></script>
 @stop
 
 @section('scripts-top')
