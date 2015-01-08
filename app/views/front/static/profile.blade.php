@@ -185,21 +185,22 @@
         </div>
         <div class="col-md-8 column">
       <div class="row">
-        <div class="col-md-12">          <h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> @{{nombre}}</h4>
-</div>
+        <div class="col-md-12">
+          <h4><i class="fa fa-user"></i> @{{nombre}}</h4>
+        </div>
       </div>
 
       	<!-- Perfil de Usuario -->
         <div class="row">
           <div class="col-md-6">
-          <p><span class="glyphicon glyphicon-info-sign"></span> @{{puesto}}</p>
-          <p><span class="glyphicon glyphicon-certificate"></span> @{{estudios}}</p>
-          <p><span class="glyphicon glyphicon-star"></span> @{{especialidad}}</p>
+          <p><i class="fa fa-suitcase"></i> @{{puesto}}</p>
+          <p><i class="fa fa-mortar-board"></i> @{{estudios}}</p>
+          <p><i class="fa fa-flask"></i> @{{especialidad}}</p>
         </div>
           <div class="col-md-6">
-          <p><span class="glyphicon glyphicon-briefcase"></span> @{{dependencia}}</p>
-          <p><span class="glyphicon glyphicon-flag"></span>Departamento de Sistemas</p>
-          <p><span class="glyphicon glyphicon-globe"></span> Ciudad de México</p>
+          <p><i class="fa fa-building"></i> @{{dependencia}}</p>
+          <p><i class="fa fa-sitemap"></i> Departamento de Sistemas</p>
+          <p><i class="fa fa-globe"></i> Ciudad de México</p>
           </div>
         </div>
         <!-- Perfil de Usuario -->

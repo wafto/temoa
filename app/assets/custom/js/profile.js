@@ -70,6 +70,15 @@
 
 				$('#favTable').append(Mustache.render(favoritosTemplate, course));
 
+
+                if(user.capacitaciones.indexOf(parseInt(course.id)) != -1){
+                    
+                    $button = $('button[data-id="' + course.id + '"]');
+
+                    $button[0].remove();
+
+                }
+
 			});
 			
 		});

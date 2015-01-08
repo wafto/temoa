@@ -32,6 +32,8 @@
 		<link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
 		<link rel="shortcut icon" href="img/favicon.png">
 
+        @yield('extra-css')
+
 		@yield('scripts-top')
 
 	</head>

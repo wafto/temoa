@@ -1,5 +1,9 @@
 @extends('front.base')
 
+@section('extra-css')
+<link rel="stylesheet" href="/css/custom2.css">
+@stop
+
 @section('content')
 
 <div class="container">
@@ -24,66 +28,17 @@
 </section>
 
 <section id="oferta-contenido">
-  <div class="row clearfix">
+    <div class="row clearfix">
+    
+    <div id="courses">
 
-    <div class="col-md-2 column">
-      <article>
-        <img src="img/xcode.jpg" alt="">
-        <h4>Laboratorio Experimental Xcode</h4>
-        <p>El Laboratorio Experimental Xcode es una iniciativa con la que podrás aprender a crear aplicaciones para Apple iOS, con una fórmula que garantiza el mayor éxito.</p>
-        <button class="btn">Ver curso</button>
-      </article>
     </div>
 
-    <div class="col-md-2 column">
-       <article>
-        <img src="img/seo.jpg" alt="">
-        <h4>Congreso SEO Online 2014</h4>
-        <p>Todo listo para arrancar el Congreso Online SEO 2014 una nueva edición del evento online dedicado a SEO más importante que existe en la actualidad.</p>
-        <button class="btn">Ver curso</button>
-      </article>
-    </div>
 
-    <div class="col-md-2 column">
-       <article>
-        <img src="img/laravel.jpg" alt="">
-        <h4>Desarrollo de aplicaciones con Laravel</h4>
-        <p>Laravel es un Framework de Desarrollo web MVC para PHP con el que optimizar tiempos, costos y esfuerzos para llevar a cabo cualquier proyecto.también editores online.</p>
-        <button class="btn">Ver curso</button>
-      </article>
-    </div>
-
-    <div class="col-md-2 column">
-       <article>
-        <img src="img/codigo.jpg" alt="">
-        <h4>Edición de código y buenas prácticas</h4>
-        <p>Una de las herramientas que debes usar diariamente en la maquetación y programación web es el editor. Actualmente hay infinidad de editores de código, específicos para el sistema operativo, multiplataforma y desde hace un tiempo.</p>
-        <button class="btn">Ver curso</button>
-      </article>
-    </div>
-
-    <div class="col-md-2 column">
-       <article>
-        <img src="img/git.jpg" alt="">
-        <h4>Curso de GIT</h4>
-        <p>Este es un curso de Git, una herramienta esencial para los desarrolladores que quieran formar parte de equipos serios de desarrollo o que quieran aprender a gestionar proyectos de manera profesional.</p>
-        <button class="btn">Ver curso</button>
-      </article>
-    </div>
-
-        <div class="col-md-2 column">
-       <article>
-        <img src="img/ui.jpg" alt="">
-        <h4>Sin UI no hay paraiso</h4>
-        <p>Repasaremos la metodología Atomic Design para la creación de sistemas de diseño y llevaremos a cabo una miniguía de creación de guías de estilo donde recoger los patrones básicos relacionados con el aspecto de una interfaz.</p>
-        <button class="btn">Ver curso</button>
-      </article>
-    </div>
-
-      <div class="row clearfix">
-    <div class="col-md-12 column carga-mas">
-              <button class="btn">Cargar más!</button>
-    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column carga-mas">
+            <button id="moare" class="btn">Cargar más!</button>
+        </div>
     </div> 
 
   </div>
@@ -92,8 +47,92 @@
 </section>
 </div>
 
+<template id="courseTemplate">
+    <div class="col-md-2 column">
+        <article>
+            <img src="@{{imagen}}" alt="">
+            <h4>@{{nombre}}</h4>
+            <p>@{{descripcion}}</p>
+            <a class="btn btn-default" href="#">Ver curso</a>
+        </article>
+    </div>
+</template>
+
 @stop
 
 @section('scripts-bottom')
-<script scr="mames.js"></script>
+
+<script src="/js/mustache.min.js"></script>
+
+<script>
+
+(function(){
+
+    var url            = 'api/v1/cursos?sort=created_at&direction=desc&size=6',
+        courseTemplate = $('#courseTemplate').html(),
+        currentPage,
+        totalPages;
+
+        $.ajax({
+
+            url    : url,
+            method : 'get'
+
+        }).done(function(data){
+
+            var results = data.items;
+            totalPages  = Math.ceil(data.total / 6);
+            currentPage = data.page;
+
+            
+            $.each(results, function(i, course){
+                
+                course.descripcion = course.descripcion.substr(0,128) + " ...";
+
+                $('#courses').append(Mustache.render(courseTemplate, course));
+
+
+            });
+
+        })
+
+
+        $('#moare').on('click', function(){
+
+            if(currentPage != totalPages){
+
+                $.ajax({
+
+                    url    : url + "&page=" + (currentPage + 1),
+                    method : 'get'
+
+                }).done(function(data){
+
+                    currentPage += 1;
+
+                    var results = data.items;
+
+                    $.each(results, function(i, course){
+                
+                    course.descripcion = course.descripcion.substr(0,128) + " ...";
+
+                    $('#courses').append(Mustache.render(courseTemplate, course));
+
+
+            });
+
+                });
+                
+
+                     
+            } else{
+                $('#moare').remove();
+            }
+
+        });
+
+
+})();
+
+</script>
 @stop
