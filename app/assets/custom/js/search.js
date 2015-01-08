@@ -27,7 +27,10 @@
 			// Se ejecuta solo si es la primer búsqueda
 			if( typeof totalPages == 'undefined'){
 
-				$('#wrapper').html(searchTemplate);
+                $('#wrapper').html(Mustache.render(searchTemplate, { busqueda : searchTerm }))
+
+			    // $('#wrapper').html(searchTemplate);
+                // Mustache.render(courseTemplate, course)
 
 			} else{
 
@@ -41,6 +44,8 @@
 			$.each(searchResults, function(i, course){
 
 				$courses.append(Mustache.render(courseTemplate, course));
+
+                console.log(course)
 
 				var $button = $('button[data-id=' + course.id + ']');
 
@@ -62,7 +67,8 @@
 
 			if(totalPages > 1){
 
-				$('#cargarMas').append('<button id="cargar">Cargar Más</button>')
+				$('#cargarMas').append('<button id="cargar"><i class="fa fa-plus"></i> Cargar Más</button>')
+
 			}
 
 		});
@@ -131,5 +137,4 @@
 		window.location = '/profile';
 	});
 
-
-})($);
+})(jQuery);

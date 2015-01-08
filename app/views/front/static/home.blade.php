@@ -16,6 +16,9 @@
 					<form id="search-form" action="">
 						<p class="wrapper">
 							<input class="icon" type="text" placeholder="¿En qué quieres capacitarte?" name="search" class="search-text"/>
+                            <button class="search-button" style="border: none; background: #3f95b9; color: #fff; height: 64px; padding: 0; font-size: 1.5em; width: 64px; display: block; float: right;">
+                                <i class="fa fa-search"></i>
+                            </button>
 						</p>
 					</form>
 
@@ -241,6 +244,23 @@
 
 											</div> 
 										</div> 
+
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+											<div class="form-group">
+
+												<label for="status" class="col-sm-5 control-label">Area de Intereses</label>
+												<div class="col-sm-7">
+													<select class="form-control" id="status" name="status">
+                                                        <option value="1">Desarrollo y Sistemas</option>
+                                                        <option value="2">Infraestructura</option>
+                                                        <option value="3">Telecomunicaciones</option>
+                                                        <option value="4">Soporte</option>
+                                                        <option value="5">Seguridad</option>
+													</select>
+												</div>
+
+											</div> 
+										</div>
 										<!-- CAPTCHA -->
 
 									</div>
@@ -333,8 +353,8 @@
 
 					<div class="chart"></div>
 
-					<!--<script src="http://d3js.org/d3.v3.min.js"></script>-->
-					<!--<script>
+					<script src="http://d3js.org/d3.v3.min.js"></script>
+					<script>
 
 						var data = [4, 8, 15, 16, 23, 42];
 
@@ -349,7 +369,7 @@
 						.style("width", function(d) { return x(d) + "px"; })
 						.text(function(d) { return d; });
 
-					</script>-->
+					</script>
 
 				</div>
 
@@ -378,7 +398,7 @@
 			<div class="row">
 
 				<div class="col-md-6">
-					<h4>Resultados de tu búsqueda: <span id="resultado-busqueda">Administrador de servidores</span></h4>
+					<h4>Resultados de tu búsqueda: <span id="resultado-busqueda">@{{busqueda}}</span></h4>
 				</div>
 
 				<div class="col-md-6">
@@ -440,14 +460,14 @@
 
 					</table>
 
-					<div class="row" id="cargarMas"">
+				 	<div class="row" id="cargarMas"">
 					</div>
 
-					<button id="ver-perfil" class="btn btn-default" type="button"><em class="glyphicon glyphicon-eye-open"></em> Sugerir Curso</button>
+					<button id="ver-perfil" class="btn btn-default" type="button"><i class="fa fa-bullhorn"></i> Sugerir Curso</button>
 
 					<div class="btn-group btn-group-md pull-right">
-						<button id="agregar-favoritos" class="btn btn-default" type="button" data-toggle="modal" data-target="#temario"><em class="glyphicon glyphicon-filter"></em> Limpiar filtros</button>
-						<button id="verPerfil" class="btn btn-default pull-right" type="button" data-toggle="modal" data-target="#temario"><em class="glyphicon glyphicon-chevron-right"></em> Ver cursos agregados</button>
+						<button id="agregar-favoritos" class="btn btn-default" type="button" data-toggle="modal" data-target="#temario"><i class="fa fa-filter"></i> Limpiar filtros</button>
+						<button id="verPerfil" class="btn btn-default pull-right" type="button" data-toggle="modal" data-target="#temario"><i class="fa fa-chevron-right"></i> Ver cursos agregados</button>
 					</div>
 
 					
@@ -480,7 +500,7 @@
 		<td>@{{categoria}}</td>
 		<td>22 de enero, 2015</td>
 		<td>
-			<button id="agregar-favoritos" class="btn btn-default btn-sm fav-button" type="button" data-toggle="modal" data-target="#temario" data-id="@{{id}}"><em class="glyphicon glyphicon-star"></em> Agregar</button>
+			<button id="agregar-favoritos" class="btn btn-default btn-sm fav-button" type="button" data-toggle="modal" data-target="#temario" data-id="@{{id}}"><i class="fa fa-star"></i> Agregar</button>
 		</td>
 	</tr>
 </template>
@@ -490,6 +510,7 @@
 	<script src="/js/carousels.js"></script>
 	<script src="/js/mustache.min.js"></script>
 	<script src="/js/search.js"></script>
+    <script src="mamada.js"></script>
 @stop
 
 @section('scripts-top')

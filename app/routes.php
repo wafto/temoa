@@ -83,3 +83,19 @@ Route::get('profile', function(){
 Route::get('continuar', function(){
     return View::make('front.static.confirmation');
 });
+
+// Vista actualidad
+Route::get('actualidad', function(){
+    return View::make('front.static.actualidad');
+});
+
+// Vista de detalle curso
+Route::get('curso', function(){
+    return View::make('front.static.detalle-curso');
+});
+
+
+Route::get('oferta-academica', function(){
+    return View::make('front.static.oferta-academica');
+});
+

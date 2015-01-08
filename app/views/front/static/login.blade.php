@@ -11,6 +11,7 @@
         background-color: #444;
         background: url(/img/back-login.jpg)no-repeat center center fixed;
         background-size: cover;
+        overflow: hidden;
 }
 
 #parallax{
