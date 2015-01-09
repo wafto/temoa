@@ -1,7 +1,7 @@
 @extends('front.base')
 
 @section('content')
-<div class="container" style="margin-top:120px;">
+<div class="container" style="margin-top:120px; min-height:700px">
 
 
 <div class="row clearfix">
@@ -17,9 +17,9 @@
            <li>
             <a href="#favoritos" data-toggle="tab">Favoritos</a>
           </li>
-            <li>
+       <!--      <li>
             <a href="#preferencias" data-toggle="tab">Preferencias</a>
-          </li>
+          </li> -->
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="mi-perfil">
@@ -37,34 +37,25 @@
 
 
 
-    <div class="col-md-3 column">
+    <div class="col-md-3 column sidebar">
       <div class="row clearfix">
         <div class="col-md-12 column">
           <article id="notificaciones">
-            <h4>Notificaciones</h4>
+            <h4 style="align:right;">NOTIFICACIONES</h4>
             <ul>
               <li>Tu curso de HTML5 casi termina.</li>
               <li>Completa tu perfil</li>
             </ul>
           </article>
           <article id="actualizaciones">
-            <h4>Actualizaciones</h4>
+            <h4 style="align:right;">ACTUALIZACIONES</h4>
             <ul>
               <li>Ver destacados</li>
               <li>Nuevos videos</li>
               <li>Hay una nueva fecha para curso HTML5</li>
             </ul>
           </article>
-          <article id="lo-nuevo">
-            <h4>Lo nuevo</h4>
-            <ul>
-              <li>Nuevo curso de Photoshop</li>
-              <li>Aprende XML</li>
-              <li>HTML en simples pasos</li>
-              <li>Escuela de Office en 3 simples pasos</li>
-              <li>CSS curso online</li>
-            </ul>
-          </article>
+
         </div>
       </div>
     </div>
@@ -72,36 +63,24 @@
   <div class="row clearfix">
     <div class="col-md-9 column">
       <div class="row clearfix">
-        <div class="col-md-6 column">
+        <div class="col-md-12 column">
           <h3>Sobre Mi</h3>
           <article id="sobre-mi">
             <p>Soy un Ingeniero en Sistemas altamente responsable, creativo, con iniciativa y puntualidad, asumo con responsabilidad los retos y metas que la organización me plantee; adaptabilidad al cambio, manejo de personal, facilidad para trabajar en equipo, en condiciones de alta presión, así como para resolver problemas eficientemente y lograr las metas de productividad trazadas por la empresa y mi grupo de trabajo.</p>
           </article>
         </div>
-        <div class="col-md-6 column">
+ <!--        <div class="col-md-6 column">
           <h3>Áreas de Interés</h3>
           <article id="areas-interes">
                 <div id="intereses-cloud" style="width: 100%; height:200px;"></div>
           </article>
-        </div>
+        </div> -->
       </div>
     </div>
-    <div class="col-md-3 column">
-      <div class="row clearfix">
-        <div class="col-md-12 column">
-          <article id="recomendaciones">
-            <h4>Recomendaciones</h4>
-            <ul>
-              <li>Nuevo curso de Photoshop</li>
-              <li>Aprende XML</li>
-              <li>HTML en simples pasos</li>
-              <li>Escuela de Office en 3 simples pasos.</li>
-              <li>CSS curso online</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </div>
+
+
+
+
   </div>
   <div class="row clearfix">
       <div class="col-md-12 column">
@@ -219,7 +198,7 @@
 		<td>@{{categoria}}</td>
 		<td>22 de enero, 2015</td>
 		<td>
-			<button id="agregar-favoritos" class="btn btn-default btn-sm cap-button" type="button" data-toggle="modal" data-target="#temario" data-id="@{{id}}"><em class="glyphicon glyphicon-star"></em> Solicitar Suscipción</button>
+			<button id="agregar-favoritos" class="btn btn-default btn-sm cap-button" type="button" data-toggle="modal" data-target="#temario" data-id="@{{id}}"><i class="fa fa-eye"></i> Ver curso</button>
 		</td>
 	</tr>
 </template>
@@ -230,7 +209,7 @@
 		<td>@{{categoria}}</td>
 		<td>22 de enero, 2015</td>
 		<td>
-			solicitud pendiente
+			<p>Solicitud pendiente</p>
 		</td>
 	</tr>
 </template>

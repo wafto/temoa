@@ -70,15 +70,6 @@
 
 				$('#favTable').append(Mustache.render(favoritosTemplate, course));
 
-
-                if(user.capacitaciones.indexOf(parseInt(course.id)) != -1){
-                    
-                    $button = $('button[data-id="' + course.id + '"]');
-
-                    $button[0].remove();
-
-                }
-
 			});
 			
 		});
@@ -98,14 +89,6 @@
 
 				$('#capTable').append(Mustache.render(capacitacionTemplate, course));
 
-				var $button = $('button[data-id=' + course.id + ']');
-
-
-				if(user.capacitaciones.indexOf(parseInt(course.id)) != -1){
-					$button.remove();
-				}
-
-
 			});
 			
 		});
@@ -116,13 +99,15 @@
 
 		$this = $(this);
 
-		user.capacitaciones.push(parseInt($this.data('id')));
+        url = "/curso/" + $this.data('id');
 
-		store.set('user', user);
+		//user.capacitaciones.push(parseInt($this.data('id')));
 
-		$this.fadeOut();
+		//store.set('user', user);
 
-		window.location = '/continuar';
+		//$this.fadeOut();
+
+		window.location = url;
 
 	});
 	
