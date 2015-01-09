@@ -40,7 +40,7 @@ class CoursesController extends V1Controller {
 
     public function store()
     {
-        $input = Input::only('id', 'folioInterno', 'folioExterno', 'nombre', 'categoria', 'socioTecnologico', 'descripcion', 'duracion', 'formato', 'cancelado', 'visible', 'imagen', 'tags', 'inicio', 'creado', 'actualizado');
+        $input = Input::only('id', 'folioInterno', 'folioExterno', 'nombre', 'categoria', 'socioTecnologico', 'descripcion', 'duracion', 'formato', 'cancelado', 'visible', 'imagen', 'tags', 'inicio', 'creado', 'actualizado', 'temario');
         try
         {
             $transformed = (new Course())->reverseTransform($input);
@@ -58,7 +58,7 @@ class CoursesController extends V1Controller {
 
     public function update($id)
     {
-        $input = Input::only('id', 'folioInterno', 'folioExterno', 'nombre', 'categoria', 'socioTecnologico', 'descripcion', 'duracion', 'formato', 'cancelado', 'visible', 'imagen', 'tags', 'inicio', 'creado', 'actualizado');
+        $input = Input::only('id', 'folioInterno', 'folioExterno', 'nombre', 'categoria', 'socioTecnologico', 'descripcion', 'duracion', 'formato', 'cancelado', 'visible', 'imagen', 'tags', 'inicio', 'creado', 'actualizado', 'temario');
         try
         {
             $transformed = (new Course())->reverseTransform($input);
