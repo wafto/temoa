@@ -143,7 +143,7 @@
 
 						<div class="row">
 							<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-								
+
 								<!-- Forma Subscripción -->
 								<form role="form">
 
@@ -198,8 +198,8 @@
 													</select>
 												</div>
 
-											</div> 
-										</div> 
+											</div>
+										</div>
 
 										<div class="col-xs-12 col-sm-12 col-md-12">
 											<div class="form-group">
@@ -212,8 +212,8 @@
 													</select>
 												</div>
 
-											</div> 
-										</div> 
+											</div>
+										</div>
 
 										<div class="col-xs-12 col-sm-12 col-md-12">
 											<div class="form-group">
@@ -226,8 +226,8 @@
 													</select>
 												</div>
 
-											</div> 
-										</div> 
+											</div>
+										</div>
 
 										<div class="col-xs-12 col-sm-12 col-md-12">
 											<div class="form-group">
@@ -242,8 +242,8 @@
 													</select>
 												</div>
 
-											</div> 
-										</div> 
+											</div>
+										</div>
 
                                         <div class="col-xs-12 col-sm-12 col-md-12">
 											<div class="form-group">
@@ -259,7 +259,7 @@
 													</select>
 												</div>
 
-											</div> 
+											</div>
 										</div>
 										<!-- CAPTCHA -->
 
@@ -335,7 +335,7 @@
 						<li><img src="img/edumac.png" alt="Edumac"></li>
 						<li><img src="img/kmmx.png" alt="KMMX"></li>
 					</ul>
-					
+
 				</div>
 			</div>
 
@@ -470,7 +470,7 @@
 						<button id="verPerfil" class="btn btn-default pull-right" type="button" data-toggle="modal" data-target="#temario"><i class="fa fa-chevron-right"></i> Ver cursos agregados</button>
 					</div>
 
-					
+
 
 				</div>
 
@@ -488,7 +488,7 @@
 				</div>
 
 			</div>
-		
+
 		</div>
 	</section>
 
@@ -510,7 +510,6 @@
 	<script src="/js/carousels.js"></script>
 	<script src="/js/mustache.min.js"></script>
 	<script src="/js/search.js"></script>
-    <script src="mamada.js"></script>
 @stop
 
 @section('scripts-top')
