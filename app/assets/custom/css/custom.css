@@ -1,3 +1,9 @@
+/* Body */
+
+body{
+  margin-top: 64px;
+}
+
 /* fonts */
 
 div.jqcloud {
@@ -314,7 +320,6 @@ margin-top: 48px;
   background:#636b6d;
   text-align: center;
   font-size: 12px;
-  height:400px;
 }
 
 
@@ -345,6 +350,60 @@ margin-bottom: 30px;
 }
 
 
+
+button.search-button{
+    display: block;
+    border: none;
+    background: #3f95b9;
+}
+
+
+.curso-destacado img{
+    width: 90%;
+}
+
+
+li.filter{
+  cursor: pointer;
+  width: 160px;
+  padding: .5em;
+  list-style: none;
+}
+
+li.filter.selected{
+  background: #4198BC;
+  color: white;
+}
+
+
+.titulo-curso{
+  position: relative;
+  top: -202px;
+  text-align: center;
+}
+
+
+/*TABLE ODD & EVEN*/
+.table-striped>tbody>tr:nth-child(odd){background-color:#95ccde !important;}
+.table-striped>tbody>tr:nth-child(even){background-color:#c9e5ee !important;}
+
+.table-striped{
+  color: #666;
+/*  font-shadow: 2px 2px 2px rgba(0,0,0,.4);*/
+}
+
+.sidebar{
+  background: #666;
+  color: #eee;
+  padding: 12px;
+}
+
+.sidebar li{
+  border: 1px solid grey;
+  display: block;
+  margin: 12px auto;
+  
+}
 
 
 
@@ -420,15 +479,5 @@ font-size: 12px;
 .ending .col-md-12.column {
 margin-top: 30px;
 }
-
-
-}
-
-
-
-
-
-
-
 
 }

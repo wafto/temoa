@@ -52,7 +52,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="/"> <img src="img/temoa.png" alt=""> </a>
+						<a class="navbar-brand" href="/"> <img src="/img/temoa.png" alt=""> </a>
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav navbar-right">
@@ -85,21 +85,21 @@
 
 			<div class="col-md-4 column">
 				<h4>
-				Quieres ser socio de capacitacion?
+				¿Quieres ser socio de capacitación?
 				</h4>
-				<button type="button" class="btn btn-default">¡Enviar tu oferta educativa!</button>
+				<button type="button" class="btn btn-default">¡Envía tu oferta educativa!</button>
 			</div>
 
 			<div class="col-md-4 column">
 				<h4>
-				Queremos conocer tus intereses!
+				¡Queremos conocer tus intereses!
 				</h4>
 				<button type="button" class="btn btn-default">Sugerir curso o diplomado </button>
 			</div>
 
 			<div class="col-md-4 column">
 				<h4>
-				Ayudanos a mejorar la plataforma!
+				¡Ayúdanos a mejorar la plataforma!
 				</h4>
 				<button type="button" class="btn btn-default">¡Contáctanos!</button>
 			</div>

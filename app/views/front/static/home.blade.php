@@ -48,19 +48,19 @@
 		<article class="col-lg-4">
 			<img class="img-circle" src="img/testimonial-1.png" alt="Testimonial" style="width: 140px; height: 140px;">
 			<h2>Anna Sánchez</h2>
-			<p>“Me cambio la vida el utilizar TEMOA para gestionar mis cursos, me ayudo a subir de puestos en mi área rápidamente”</p>
+			<p>“Me cambió la vida el utilizar TEMOA para gestionar mis cursos, me ayudó a subir de puestos en mi área rápidamente”</p>
 		</article>
 
 		<article class="col-lg-4">
 			<img class="img-circle" src="img/testimonial-2.png" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-			<h2>Federico Duran </h2>
+			<h2>Federico Durán </h2>
 			<p>“Me preocupaba quedarme en el mismo lugar en mi dependencia gubernamental, tenía ganas de salir adelante”</p>
 		</article>
 
 		<article class="col-lg-4">
 			<img class="img-circle" src="img/testimonial-3.png" alt="Generic placeholder image" style="width: 140px; height: 140px;">
 			<h2>Rodrigo Flores</h2>
-			<p>“Tenía ganas de aprender pero no contaba con el tiempo, Cuando me enteré de TEMOA, todo cambio”</p>
+			<p>“Tenía ganas de aprender pero no contaba con el tiempo, cuando me enteré de TEMOA, todo cambió”</p>
 		</article><!-- /.col-lg-4 -->
 
 	</div>
@@ -88,51 +88,7 @@
 					<!-- TAB1 -->
 					<div class="tab-pane active" id="cursos-recientes">
 
-						<div class="row clearfix">
-
-							<article class="col-md-3 column">
-								<img alt="263x187" src="img/cursos-1.jpg">
-								<div class="titulo-curso"><h4>Efectos en Photoshop</h4></div>
-							</article>
-
-							<article class="col-md-3 column">
-								<img alt="263x187" src="img/cursos-2.jpg">
-								<div class="titulo-curso"><h4>Responsive Web Design</h4></div>
-							</article>
-
-							<article class="col-md-3 column">
-								<img alt="263x187" src="img/cursos-3.jpg">
-								<div class="titulo-curso"><h4>Taller de AfterEffects</h4></div>
-							</article>
-
-							<article class="col-md-3 column">
-								<img alt="263x187" src="img/cursos-4.jpg">
-								<div class="titulo-curso"><h4>Del papel al monitor, diseño </h4></div>
-							</article>
-
-						</div>
-
-						<div class="row clearfix">
-
-							<article class="col-md-3 column">
-								<img alt="263x187" src="img/cursos-5.jpg">
-								<div class="titulo-curso"><h4>Curso de CSS y HTML básico</h4></div>
-							</article>
-
-							<article class="col-md-3 column">
-								<img alt="263x187" src="img/cursos-6.jpg">
-								<div class="titulo-curso"><h4>Laboratorio de Xcode</h4></div>
-							</article>
-
-							<article class="col-md-3 column">
-								<img alt="263x187" src="img/cursos-7.jpg">
-								<div class="titulo-curso"><h4>Diseño web sobre Wordpress</h4></div>
-							</article>
-
-							<article class="col-md-3 column">
-								<img alt="263x187" src="img/cursos-8.jpg">
-								<div class="titulo-curso"><h4>Diplomado de HTML 5</h4></div>
-							</article>
+						<div id="destacados" class="row clearfix">
 						</div>
 
 					</div>
@@ -397,48 +353,55 @@
 
 			<div class="row">
 
-				<div class="col-md-6">
-					<h4>Resultados de tu búsqueda: <span id="resultado-busqueda">@{{busqueda}}</span></h4>
+				<div class="col-md-5">
+					<h4>Resultados de tu búsqueda: <span id="resultado-busqueda"><strong>@{{busqueda}}</strong></span></h4>
 				</div>
 
-				<div class="col-md-6">
+				<div class="col-md-7">
 					<form id="search-form" class="search-form" action="" id="buscador-interno">
 						<p class="wrapper">
-							<input class="icon" type="text" placeholder="Buscar de nuevo..." name="search" class="search-text"/>
+							<input class="icon pull-right" type="text" placeholder="Buscar de nuevo..." name="search" class="search-text"/>
+							<button class="search-button pull-right" style="border: none; background: #3f95b9; color: #fff; height: 64px; padding: 0; font-size: 1.5em; width: 64px; display: block;">
+                                <i class="fa fa-search"></i>
+                            </button>
 						</p>
 					</form>
 				</div>
 
 			</div>
 
-			<div class="row clearfix">
+			<div class="row clearfix" style="margin-top: 24px;">
 
-				<div class="col-md-3 column">
+				<div class="sidebar col-md-3 column">
 					<div id="filtro-cursos">
 
-						<p id="num-res-cursos">5 cursos encontrados</p>
-						<h4>Organizar</h4>
+						<h4>Filtros</h4>
 
 						<div id="filtro-fecha">
-							<h4>Por fecha de inicio</h4>
-							<ul>
-								<li>Comenzando hoy</li>
-								<li>Próxima semana</li>
-								<li>Próximo mes</li>
-								<li>Recién comenzado</li>
-								<li>Ritmo propio</li>
+							<h4>CATEGORÍA</h4>
+							<ul class="select">
+								<li class="category filter btn btn-default btn-block" data-id="1"><i class="fa fa-checkbox"></i> Desarrollo y sistemas</li>
+								<li class="category filter btn btn-default btn-block" data-id="2"><i class="fa fa-checkbox"></i> Infraestructura</li>
+								<li class="category filter btn btn-default btn-block" data-id="3"><i class="fa fa-checkbox"></i> Telecomunicaciones</li>
+								<li class="category filter btn btn-default btn-block" data-id="4"><i class="fa fa-checkbox"></i> Soporte</li>
+								<li class="category filter btn btn-default btn-block" data-id="5"><i class="fa fa-checkbox"></i> Seguridad</li>	
 							</ul>
 						</div>
 
 						<div id="filtro-modalidad">
-							<h4>Por modalidad</h4>
-							<ul>
-								<li>Presencial</li>
-								<li>En línea</li>
+							<h4>MODALIDAD</h4>
+							<ul class="select">
+								<li class="format filter btn btn-default btn-block" data-id="presencial"><i class="fa fa-checkbox"></i> Presencial</li>
+								<li class="format filter btn btn-default btn-block" data-id="linea"><i class="fa fa-checkbox"></i> En línea</li>
 							</ul>
 						</div>
 
 					</div>
+
+
+					<!-- BOTON FILTRAR -->
+					<a class="btn btn-default btn-block" id="filtrar" href="#">Filtrar</a>
+
 				</div>
 
 				<div class="col-md-9 column">
@@ -460,15 +423,22 @@
 
 					</table>
 
-				 	<div class="row" id="cargarMas"">
+				 	
+
+				 	<div class="row" id="cargarMas">
+
+
+
+				 		<div class="btn-group btn-group-md pull-right">
+							<button id="ver-perfil" class="btn btn-default" type="button"><i class="fa fa-bullhorn"></i> Sugerir Curso</button>
+							<button id="agregar-favoritos" class="btn btn-default" type="button" data-toggle="modal" data-target="#temario"><i class="fa fa-filter"></i> Limpiar filtros</button>
+							<button id="verPerfil" class="btn btn-default pull-right" type="button" data-toggle="modal" data-target="#temario"><i class="fa fa-chevron-right"></i> Ver cursos agregados</button>
+						</div>
 					</div>
 
-					<button id="ver-perfil" class="btn btn-default" type="button"><i class="fa fa-bullhorn"></i> Sugerir Curso</button>
+					
 
-					<div class="btn-group btn-group-md pull-right">
-						<button id="agregar-favoritos" class="btn btn-default" type="button" data-toggle="modal" data-target="#temario"><i class="fa fa-filter"></i> Limpiar filtros</button>
-						<button id="verPerfil" class="btn btn-default pull-right" type="button" data-toggle="modal" data-target="#temario"><i class="fa fa-chevron-right"></i> Ver cursos agregados</button>
-					</div>
+					
 
 					
 
@@ -504,13 +474,52 @@
 		</td>
 	</tr>
 </template>
+
+<template id="courseTemplate2">
+
+    <article class="col-md-3 column">
+        <img alt="263x187" src="@{{imagen}}" style="width: 100%;">
+        <div class="titulo-curso"><a style="color: white;" href="/curso/@{{id}}"><h4>@{{nombre}}</h4></a></div>
+    </article>
+
+</template>
 @stop
 
 @section('scripts-bottom')
 	<script src="/js/carousels.js"></script>
 	<script src="/js/mustache.min.js"></script>
 	<script src="/js/search.js"></script>
-    <script src="mamada.js"></script>
+    <script>
+        (function(){
+            
+            $.ajax({
+                
+                url   : "/api/v1/cursos?sort=created_at&direction=desc&size=8",
+                metod : "get"
+
+            }).done(function(data){
+                
+                var results = data.items,
+                    courseTemplate2 = $('#courseTemplate2').html(),
+                    $destacados = $('#destacados');
+
+                $.each(results, function(i, course){
+
+                    $destacados.append(Mustache.render(courseTemplate2, course))
+
+                    if(i == 3){
+
+                        $destacados.append('<div class="clearfix"></div>');
+
+                    }
+
+                    
+                });
+
+            });
+
+        })();
+    </script>
 @stop
 
 @section('scripts-top')

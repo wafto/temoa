@@ -13,9 +13,9 @@
 <br>
 <br>
 <br>
-<div style="text-align: center;">
-	<h2>Esta a punto de solicitar una suscripción a un curso</h2>
-	<p>Una notificación sera enviada a el encargado de su dependencia.</p>
+<div style="text-align: center; min-height: 300px;">
+	<h2>Estás a punto de solicitar tu inscripción a una capacitación.</h2>
+	<p>Una notificación será enviada al encargado de su dependencia.</p>
 	<button id="continuar" class="btn btn-default">Continuar</button>
 </div>
 <br>
