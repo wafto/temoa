@@ -78,6 +78,9 @@ gulp.task('custom', function () {
     gulp.src(directory.assets + '/custom/css/custom.css')
         .pipe(minifyCSS({keepBreaks:true}))
         .pipe(gulp.dest(directory.target.css));
+    gulp.src(directory.assets + '/custom/css/custom2.css')
+        .pipe(minifyCSS({keepBreaks:true}))
+        .pipe(gulp.dest(directory.target.css));
     gulp.src(directory.assets + '/custom/js/carousels.js')
         .pipe(uglify({compress: false, mangle: false, preserveComments: false}))
         .pipe(gulp.dest(directory.target.js));
