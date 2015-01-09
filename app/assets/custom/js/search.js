@@ -45,8 +45,6 @@
 
 				$courses.append(Mustache.render(courseTemplate, course));
 
-                console.log(course)
-
 				var $button = $('button[data-id=' + course.id + ']');
 
 				if(user.favoritos.indexOf(parseInt(course.id)) != -1){
@@ -67,7 +65,7 @@
 
 			if(totalPages > 1){
 
-				$('#cargarMas').append('<button id="cargar"><i class="fa fa-plus"></i> Cargar Más</button>')
+				$('#cargarMas').append('<button class="btn btn-default" id="cargar"><i class="fa fa-plus"></i> Cargar Más</button>')
 
 			}
 
@@ -135,6 +133,77 @@
 
 	$("body").on('click', '#verPerfil', function(){
 		window.location = '/profile';
+	});
+
+	$("body").on('click', '.filter', function(){
+		$(this).toggleClass('selected');
+	});
+
+	$("body").on('click', '#filtrar', function(){
+
+
+		var query            = lastURL,
+			$categoryFilters = $('.selected.filter.category'),
+			$formatFilters   = $('.selected.filter.format');
+
+
+		if($categoryFilters.length > 0){
+			
+			query += '&search[category_id][in]='
+
+			$categoryFilters.each(function(){
+
+				id = $(this).data('id');
+
+				query += id + ',';
+
+
+			});
+
+		}
+
+		if($formatFilters.length > 0){
+
+			$formatFilters.each(function(){
+
+				query += '&search[format][eq]=' + $(this).data('id');
+
+			});
+
+
+		}
+
+
+		$.ajax({
+			url : query,
+			method : 'get'
+		}).done(function(data){
+
+
+			var results = data.items,
+				$courses = $('#courses');
+
+			$courses.html('');
+
+
+			$.each(results, function(i, course){
+
+				$courses.append(Mustache.render(courseTemplate, course));
+
+
+			});
+
+
+
+
+		});
+
+		return false;
+
+
+
+
+
 	});
 
 })(jQuery);

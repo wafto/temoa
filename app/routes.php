@@ -90,7 +90,7 @@ Route::get('actualidad', function(){
 });
 
 // Vista de detalle curso
-Route::get('curso', function(){
+Route::get('curso/{id}', function(){
     return View::make('front.static.detalle-curso');
 });
 
