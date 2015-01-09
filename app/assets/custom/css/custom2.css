@@ -1,0 +1,13 @@
+article{
+	margin-top: 1em;
+}
+
+article > img{
+    width : 100%; 
+}
+
+article > .btn.btn-default{
+    position: absolute;
+    bottom: .8em;
+    margin: 0 -25%;
+}
